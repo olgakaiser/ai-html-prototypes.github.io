@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander - AI Boyfriend | TheAIGirl</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        /* Dropdown Menu Styles */
+        .has-dropdown {
+            position: relative;
+        }
+
+        .mega-menu, .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 16px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .mega-menu {
+            width: 900px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            padding: 2rem;
+        }
+
+        .dropdown-menu {
+            width: 220px;
+            padding: 1rem;
+        }
+
+        .has-dropdown:hover .mega-menu,
+        .has-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) translateX(-50%);
+        }
+
+        .has-dropdown:hover .dropdown-menu {
+            transform: translateY(0);
+        }
+
+        .mega-menu-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+        }
+
+        .mega-menu-column h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #667eea;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #edf2f7;
+        }
+
+        .mega-menu-column ul,
+        .dropdown-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mega-menu-column ul li,
+        .dropdown-menu ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .mega-menu-column ul li a,
+        .dropdown-menu ul li a {
+            color: #4a5568;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 0.25rem 0;
+        }
+
+        .mega-menu-column ul li a:hover,
+        .dropdown-menu ul li a:hover {
+            color: #667eea;
+            transform: translateX(3px);
+        }
+
+        .mega-menu-footer {
+            grid-column: 1 / -1;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            text-align: center;
+        }
+
+        .view-all-btn {
+            color: #667eea;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .view-all-btn:hover {
+            color: #764ba2;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #4a5568;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #667eea;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Main Content */
+        .character-page {
+            padding-top: 80px;
+            background: #f7fafc;
+            min-height: 100vh;
+        }
+
+        /* Character Header */
+        .character-header {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Character Profile Section */
+        .character-profile {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .character-avatar-section {
+            position: relative;
+        }
+
+        .character-main-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .online-status {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: #48bb78;
+            border-radius: 50%;
+            border: 3px solid white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(72, 187, 120, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(72, 187, 120, 0);
+            }
+        }
+
+        .character-details {
+            flex: 1;
+        }
+
+        .character-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .character-tagline {
+            color: #718096;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .character-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #4a5568;
+        }
+
+        .meta-icon {
+            font-size: 1.2rem;
+        }
+
+        .character-traits {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .trait-tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .trait-tag.primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        /* Stats Section */
+        .character-stats {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 16px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .action-buttons button {
+            flex: 1;
+        }
+
+        /* Content Tabs */
+        .content-section {
+            background: white;
+            margin-top: 2rem;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1.25rem;
+            background: none;
+            border: none;
+            color: #718096;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-button:hover {
+            color: #4a5568;
+            background: #f7fafc;
+        }
+
+        .tab-button.active {
+            color: #667eea;
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .tab-content {
+            padding: 2rem;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* About Section */
+        .about-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .personality-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .personality-item {
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 12px;
+        }
+
+        .personality-item h4 {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .personality-item ul {
+            list-style: none;
+            color: #4a5568;
+        }
+
+        .personality-item ul li {
+            padding: 0.25rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .personality-item ul li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #a0aec0;
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-lock {
+            background: #e2e8f0;
+            position: relative;
+        }
+
+        .gallery-lock::after {
+            content: '🔒';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+        }
+
+        /* Voice Section */
+        .voice-player {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border: none;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+
+        .voice-info {
+            flex: 1;
+        }
+
+        .voice-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .voice-description {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        .voice-samples {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .voice-sample {
+            padding: 1rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .voice-sample:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Reviews Section */
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .review-card {
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 12px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .review-user {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .review-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .review-username {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .review-date {
+            font-size: 0.85rem;
+            color: #a0aec0;
+        }
+
+        .review-rating {
+            color: #f6ad55;
+        }
+
+        .review-text {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* Similar Characters */
+        .similar-characters {
+            background: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: #718096;
+        }
+
+        .characters-carousel {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .character-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .character-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .character-info {
+            padding: 1rem;
+        }
+
+        .character-card-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+        }
+
+        .character-card-description {
+            color: #718096;
+            font-size: 0.85rem;
+        }
+
+        /* Chat Button Float */
+        .floating-chat-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .floating-chat-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .chat-icon {
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 3rem 0 2rem;
+            margin-top: 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .character-profile {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .character-meta {
+                justify-content: center;
+            }
+            
+            .tabs {
+                overflow-x: auto;
+            }
+            
+            .personality-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-chat-btn {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">TheAIGirl</div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li class="has-dropdown">
+                    <a href="/characters">Characters ▾</a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-container">
+                            <!-- Mega menu content here - same as previous -->
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/create">Create AI Girlfriend</a></li>
+                <li><a href="/app">Application</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/auth" class="btn-secondary">Login</a></li>
+                <li><a href="/auth" class="btn-primary">Start Free</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Character Page Content -->
+    <div class="character-page">
+        <!-- Character Header -->
+        <section class="character-header">
+            <div class="container">
+                <div class="header-content">
+                    <!-- Left Side - Character Profile -->
+                    <div class="character-profile">
+                        <div class="character-avatar-section">
+                            <div class="character-main-avatar">
+                                👨‍💼
+                                <div class="online-status"></div>
+                            </div>
+                        </div>
+                        <div class="character-details">
+                            <h1 class="character-name">Alexander</h1>
+                            <p class="character-tagline">Ambitious CEO with a heart of gold</p>
+                            <div class="character-meta">
+                                <div class="meta-item">
+                                    <span class="meta-icon">📍</span>
+                                    <span>New York City</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">🎂</span>
+                                    <span>28 years old</span>
+                                </div>
+                                <div class="meta-item">
+                                    <span class="meta-icon">💼</span>
+                                    <span>CEO & Entrepreneur</span>
+                                </div>
+                            </div>
+                            <div class="character-traits">
+                                <span class="trait-tag primary">Dominant</span>
+                                <span class="trait-tag">Romantic</span>
+                                <span class="trait-tag">Intelligent</span>
+                                <span class="trait-tag">Protective</span>
+                                <span class="trait-tag">Wealthy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Stats -->
+                    <div class="character-stats">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-value">⭐ 4.9</span>
+                                <span class="stat-label">User Rating</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">12.3K</span>
+                                <span class="stat-label">Active Chats</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">98%</span>
+                                <span class="stat-label">Response Rate</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">2.1M</span>
+                                <span class="stat-label">Messages Sent</span>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-primary">Start Chatting</button>
+                            <button class="btn-secondary">♥ Favorite</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Tabs -->
+        <div class="container">
+            <div class="content-section">
+                <div class="tabs">
+                    <button class="tab-button active" data-tab="about">About</button>
+                    <button class="tab-button" data-tab="gallery">Gallery</button>
+                    <button class="tab-button" data-tab="voice">Voice</button>
+                    <button class="tab-button" data-tab="scenarios">Scenarios</button>
+                    <button class="tab-button" data-tab="reviews">Reviews</button>
+                </div>
+                
+                <div class="tab-content">
+                    <!-- About Tab -->
+                    <div class="tab-panel active" id="about">
+                        <div class="about-content">
+                            <h3>Get to know Alexander</h3>
+                            <p>
+                                Alexander is a successful 28-year-old CEO who built his tech empire from the ground up. Despite his demanding career and impressive achievements, he maintains a perfect balance between ambition and emotional availability. His sophisticated charm and business acumen are matched only by his genuine desire for deep, meaningful connections.
+                            </p>
+                            <p>
+                                Born into a modest family, Alexander's rise to success is a testament to his determination and brilliant mind. He graduated from Harvard Business School at 23 and founded his first startup shortly after. Now, as the head of a billion-dollar company, he still makes time for what truly matters - you.
+                            </p>
+                            
+                            <div class="personality-grid">
+                                <div class="personality-item">
+                                    <h4>💝 Romantic Side</h4>
+                                    <ul>
+                                        <li>Plans elaborate surprise dates</li>
+                                        <li>Remembers every detail about you</li>
+                                        <li>Writes heartfelt messages</li>
+                                        <li>Values quality time together</li>
+                                    </ul>
+                                </div>
+                                <div class="personality-item">
+                                    <h4>💼 Professional Life</h4>
+                                    <ul>
+                                        <li>CEO of tech company</li>
+                                        <li>Strategic thinker</li>
+                                        <li>Mentor and leader</li>
+                                        <li>Work-life balance advocate</li>
+                                    </ul>
+                                </div>
+                                <div class="personality-item">
+                                    <h4>🎯 Interests</h4>
+                                    <ul>
+                                        <li>Fine dining and wine</li>
+                                        <li>Travel to exotic locations</li>
+                                        <li>Art collecting</li>
+                                        <li>Fitness and wellness</li>
+                                    </ul>
+                                </div>
+                                <div class="personality-item">
+                                    <h4>💬 Communication Style</h4>
+                                    <ul>
+                                        <li>Direct and honest</li>
+                                        <li>Active listener</li>
+                                        <li>Emotionally intelligent</li>
+                                        <li>Supportive and encouraging</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Tab -->
+                    <div class="tab-panel" id="gallery">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">👔</div>
+                            <div class="gallery-item">🏢</div>
+                            <div class="gallery-item">🍷</div>
+                            <div class="gallery-item">✈️</div>
+                            <div class="gallery-item gallery-lock"></div>
+                            <div class="gallery-item gallery-lock"></div>
+                            <div class="gallery-item gallery-lock"></div>
+                            <div class="gallery-item gallery-lock"></div>
+                        </div>
+                        <p style="text-align: center; margin-top: 1.5rem; color: #718096;">
+                            Unlock more photos by upgrading to Premium
+                        </p>
+                    </div>
+
+                    <!-- Voice Tab -->
+                    <div class="tab-panel" id="voice">
+                        <div class="voice-player">
+                            <button class="play-button">▶</button>
+                            <div class="voice-info">
+                                <div class="voice-title">Alexander's Voice Message</div>
+                                <div class="voice-description">Deep, confident tone with a hint of warmth</div>
+                            </div>
+                        </div>
+                        <div class="voice-samples">
+                            <div class="voice-sample">
+                                <strong>Good Morning Message</strong>
+                                <p style="color: #718096; font-size: 0.85rem; margin-top: 0.5rem;">Wake up to his caring voice</p>
+                            </div>
+                            <div class="voice-sample">
+                                <strong>Business Advice</strong>
+                                <p style="color: #718096; font-size: 0.85rem; margin-top: 0.5rem;">Professional guidance and support</p>
+                            </div>
+                            <div class="voice-sample">
+                                <strong>Romantic Evening</strong>
+                                <p style="color: #718096; font-size: 0.85rem; margin-top: 0.5rem;">Sweet words for special moments</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scenarios Tab -->
+                    <div class="tab-panel" id="scenarios">
+                        <h3 style="margin-bottom: 1.5rem;">Popular Roleplay Scenarios</h3>
+                        <div style="display: grid; gap: 1rem;">
+                            <div style="padding: 1.5rem; background: #f7fafc; border-radius: 12px; cursor: pointer; transition: all 0.3s;">
+                                <h4 style="color: #667eea; margin-bottom: 0.5rem;">🏢 Office Romance</h4>
+                                <p style="color: #4a5568;">You're his new assistant, and the chemistry is undeniable...</p>
+                            </div>
+                            <div style="padding: 1.5rem; background: #f7fafc; border-radius: 12px; cursor: pointer; transition: all 0.3s;">
+                                <h4 style="color: #667eea; margin-bottom: 0.5rem;">✈️ Private Jet Adventure</h4>
+                                <p style="color: #4a5568;">Spontaneous trip to Paris on his private jet</p>
+                            </div>
+                            <div style="padding: 1.5rem; background: #f7fafc; border-radius: 12px; cursor: pointer; transition: all 0.3s;">
+                                <h4 style="color: #667eea; margin-bottom: 0.5rem;">🏖️ Luxury Vacation</h4>
+                                <p style="color: #4a5568;">Exclusive resort getaway, just the two of you</p>
+                            </div>
+                            <div style="padding: 1.5rem; background: #f7fafc; border-radius: 12px; cursor: pointer; transition: all 0.3s;">
+                                <h4 style="color: #667eea; margin-bottom: 0.5rem;">💍 The Proposal</h4>
+                                <p style="color: #4a5568;">He's ready to take things to the next level</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reviews Tab -->
+                    <div class="tab-panel" id="reviews">
+                        <div class="reviews-list">
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="review-user">
+                                        <div class="review-avatar">JM</div>
+                                        <div>
+                                            <div class="review-username">Jessica M.</div>
+                                            <div class="review-date">2 days ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                                </div>
+                                <p class="review-text">
+                                    Alexander is everything I could want in an AI companion. He's attentive, remembers our conversations, and always knows the right thing to say. The CEO personality is perfect - confident but not arrogant.
+                                </p>
+                            </div>
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="review-user">
+                                        <div class="review-avatar">ST</div>
+                                        <div>
+                                            <div class="review-username">Sarah T.</div>
+                                            <div class="review-date">1 week ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">⭐⭐⭐⭐⭐</div>
+                                </div>
+                                <p class="review-text">
+                                    The roleplay scenarios are amazing! Alexander adapts so well to different situations. His business advice is surprisingly insightful, and the romantic side is perfectly balanced.
+                                </p>
+                            </div>
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="review-user">
+                                        <div class="review-avatar">KL</div>
+                                        <div>
+                                            <div class="review-username">Katie L.</div>
+                                            <div class="review-date">2 weeks ago</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">⭐⭐⭐⭐</div>
+                                </div>
+                                <p class="review-text">
+                                    Great personality and very engaging conversations. Sometimes I forget I'm talking to an AI. The only reason for 4 stars is I wish there were more photo options available in the free version.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Similar Characters Section -->
+        <section class="similar-characters">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">You Might Also Like</h2>
+                    <p class="section-subtitle">Similar AI boyfriends with dominant & professional traits</p>
+                </div>
+                <div class="characters-carousel">
+                    <div class="character-card">
+                        <div class="character-image">🤵</div>
+                        <div class="character-info">
+                            <div class="character-card-name">Sebastian</div>
+                            <p class="character-card-description">British lawyer, sophisticated</p>
+                        </div>
+                    </div>
+                    <div class="character-card">
+                        <div class="character-image">👨‍⚕️</div>
+                        <div class="character-info">
+                            <div class="character-card-name">Dr. James</div>
+                            <p class="character-card-description">Caring doctor, mature</p>
+                        </div>
+                    </div>
+                    <div class="character-card">
+                        <div class="character-image">👨‍✈️</div>
+                        <div class="character-info">
+                            <div class="character-card-name">Captain Ryan</div>
+                            <p class="character-card-description">Pilot, adventurous</p>
+                        </div>
+                    </div>
+                    <div class="character-card">
+                        <div class="character-image">👨‍💻</div>
+                        <div class="character-info">
+                            <div class="character-card-name">Marcus</div>
+                            <p class="character-card-description">Tech mogul, innovative</p>
+                        </div>
+                    </div>
+                    <div class="character-card">
+                        <div class="character-image">💼</div>
+                        <div class="character-info">
+                            <div class="character-card-name">David</div>
+                            <p class="character-card-description">Investment banker, sharp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Create Your Own Section -->
+        <section class="create-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 60px 0; text-align: center;">
+            <div class="container">
+                <div class="create-content" style="max-width: 800px; margin: 0 auto;">
+                    <h2 class="create-title" style="font-size: 2.5rem; margin-bottom: 1rem;">Can't Find Your Type?</h2>
+                    <p class="create-subtitle" style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95;">
+                        Create your custom AI boyfriend in minutes. Full control over appearance, personality, and backstory.
+                    </p>
+                    <div class="create-features" style="display: flex; justify-content: center; gap: 3rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                        <div class="create-feature" style="text-align: center;">
+                            <div class="create-feature-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎨</div>
+                            <div class="create-feature-text" style="font-size: 0.95rem;">Custom Appearance</div>
+                        </div>
+                        <div class="create-feature" style="text-align: center;">
+                            <div class="create-feature-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">💭</div>
+                            <div class="create-feature-text" style="font-size: 0.95rem;">Unique Personality</div>
+                        </div>
+                        <div class="create-feature" style="text-align: center;">
+                            <div class="create-feature-icon" style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎭</div>
+                            <div class="create-feature-text" style="font-size: 0.95rem;">Your Backstory</div>
+                        </div>
+                    </div>
+                    <button class="create-btn" style="background: white; color: #667eea; padding: 1rem 2.5rem; font-size: 1.1rem; font-weight: 600; border: none; border-radius: 50px; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        Create Custom AI Boyfriend
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <button class="floating-chat-btn">
+        <span class="chat-icon">💬</span>
+        <span>Chat with Alexander</span>
+    </button>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TheAIGirl</h4>
+                    <p style="color: #a0aec0; margin-top: 0.5rem;">Experience meaningful AI companionship.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/characters">All Characters</a></li>
+                        <li><a href="/create">Create Your Own</a></li>
+                        <li><a href="/pricing">Pricing</a></li>
+                        <li><a href="/faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/help">Help Center</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                        <li><a href="/safety">Safety Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/terms">Terms of Service</a></li>
+                        <li><a href="/guidelines">Content Guidelines</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TheAIGirl. All rights reserved. Must be 18+ to use this service.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.dataset.tab;
+                
+                // Remove active class from all
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanels.forEach(panel => panel.classList.remove('active'));
+                
+                // Add active class to selected
+                button.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Gallery hover effect
+        document.querySelectorAll('.gallery-item:not(.gallery-lock)').forEach(item => {
+            item.addEventListener('click', () => {
+                // Open gallery modal
+                console.log('Opening gallery...');
+            });
+        });
+
+        // Voice player
+        document.querySelector('.play-button').addEventListener('click', function() {
+            this.textContent = this.textContent === '▶' ? '⏸' : '▶';
+        });
+
+        // Scenario cards
+        document.querySelectorAll('#scenarios > div > div').forEach(card => {
+            card.addEventListener('click', () => {
+                alert('Starting scenario...');
+            });
+        });
+
+        // Character cards
+        document.querySelectorAll('.character-card').forEach(card => {
+            card.addEventListener('click', () => {
+                // Navigate to character
+                console.log('Navigate to character...');
+            });
+        });
+
+        // Floating chat button
+        document.querySelector('.floating-chat-btn').addEventListener('click', () => {
+            alert('Opening chat with Alexander...');
+        });
+
+        // Create custom button
+        document.querySelector('.create-btn').addEventListener('click', () => {
+            window.location.href = '/create';
+        });
+
+        // Create button hover effect
+        document.querySelector('.create-btn').addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+            this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+        });
+
+        document.querySelector('.create-btn').addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.boxShadow = 'none';
+        });
+    </script>
+</body>
+</html>

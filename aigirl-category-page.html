@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse AI Boyfriends - Find Your Perfect Virtual Companion | TheAIGirl</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #667eea;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Category Hero Section */
+        .category-hero {
+            padding: 120px 0 60px;
+            background: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            opacity: 0.05;
+        }
+
+        .category-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .category-subtitle {
+            font-size: 1.25rem;
+            color: #718096;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search and Filters Section */
+        .filters-section {
+            background: #f7fafc;
+            padding: 2rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .filters-container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-bar {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+        }
+
+        .filter-dropdown {
+            padding: 0.75rem 1.25rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            background: white;
+            cursor: pointer;
+            font-weight: 500;
+            color: #4a5568;
+            transition: all 0.3s ease;
+        }
+
+        .filter-dropdown:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+            background: white;
+            padding: 0.25rem;
+            border-radius: 50px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .view-btn {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            color: #718096;
+            transition: all 0.3s ease;
+        }
+
+        .view-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Quick Tags Section */
+        .quick-tags {
+            background: white;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .tags-container {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .tag-label {
+            font-weight: 600;
+            color: #4a5568;
+            margin-right: 0.5rem;
+        }
+
+        .quick-tag {
+            padding: 0.5rem 1rem;
+            background: #edf2f7;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            color: #4a5568;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .quick-tag:hover {
+            background: #e2e8f0;
+            border-color: #cbd5e0;
+        }
+
+        .quick-tag.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Character Gallery Section */
+        .characters-gallery {
+            background: #f7fafc;
+            padding: 3rem 0;
+            min-height: 600px;
+        }
+
+        .gallery-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .results-count {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        .sort-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .sort-label {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .sort-dropdown {
+            padding: 0.5rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            background: white;
+            color: #4a5568;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        /* Character Cards Grid */
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .character-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        .online-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 12px;
+            height: 12px;
+            background: #48bb78;
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse 2s infinite;
+            z-index: 10;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(72, 187, 120, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(72, 187, 120, 0);
+            }
+        }
+
+        .character-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .character-stats {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 0.75rem;
+            border-radius: 12px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: white;
+            font-size: 0.85rem;
+        }
+
+        .character-info {
+            padding: 1.5rem;
+        }
+
+        .character-name {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .character-age-location {
+            color: #718096;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .character-description {
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .character-traits {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .trait-tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .chat-button {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Load More Section */
+        .load-more-section {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .load-more-btn {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            border: 2px solid #667eea;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Create Your Own Section */
+        .create-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .create-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .create-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .create-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .create-features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .create-feature {
+            text-align: center;
+        }
+
+        .create-feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .create-feature-text {
+            font-size: 0.95rem;
+        }
+
+        .create-btn {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .create-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .category-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .filters-container {
+                flex-direction: column;
+            }
+            
+            .search-bar {
+                width: 100%;
+            }
+            
+            .characters-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">TheAIGirl</div>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="#" style="color: #667eea;">Browse AI Boyfriends</a></li>
+                <li><a href="#">Create Custom</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#" class="btn-secondary">Login</a></li>
+                <li><a href="#" class="btn-primary">Start Free</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Category Hero Section -->
+    <section class="category-hero">
+        <div class="container">
+            <h1>Choose Your Perfect AI Boyfriend</h1>
+            <p class="category-subtitle">Explore hundreds of unique AI companions. From romantic poets to adventurous bad boys, find the one who matches your vibe perfectly.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <span style="color: #667eea; font-weight: 600;">🔥 523 Active Now</span>
+                <span style="color: #764ba2; font-weight: 600;">💬 1.2M+ Conversations Today</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filters Section -->
+    <div class="filters-section">
+        <div class="container">
+            <div class="filters-container">
+                <div class="search-bar">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" class="search-input" placeholder="Search for your ideal boyfriend...">
+                </div>
+                <select class="filter-dropdown">
+                    <option>All Categories</option>
+                    <option>Romantic</option>
+                    <option>Adventurous</option>
+                    <option>Intellectual</option>
+                    <option>Bad Boy</option>
+                    <option>Caring</option>
+                </select>
+                <select class="filter-dropdown">
+                    <option>Any Age</option>
+                    <option>18-25</option>
+                    <option>26-35</option>
+                    <option>36-45</option>
+                    <option>45+</option>
+                </select>
+                <div class="view-toggle">
+                    <button class="view-btn active">Grid</button>
+                    <button class="view-btn">List</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Tags Section -->
+    <div class="quick-tags">
+        <div class="container">
+            <div class="tags-container">
+                <span class="tag-label">Popular:</span>
+                <button class="quick-tag active">All</button>
+                <button class="quick-tag">🔥 Trending</button>
+                <button class="quick-tag">💝 Romantic</button>
+                <button class="quick-tag">😈 Bad Boy</button>
+                <button class="quick-tag">🎓 Intellectual</button>
+                <button class="quick-tag">💪 Athletic</button>
+                <button class="quick-tag">🎨 Creative</button>
+                <button class="quick-tag">👔 Professional</button>
+                <button class="quick-tag">🎸 Musician</button>
+                <button class="quick-tag">🌍 Adventurous</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Characters Gallery Section -->
+    <section class="characters-gallery">
+        <div class="container">
+            <div class="gallery-header">
+                <span class="results-count">Showing 24 of 500+ AI Boyfriends</span>
+                <div class="sort-selector">
+                    <span class="sort-label">Sort by:</span>
+                    <select class="sort-dropdown">
+                        <option>Most Popular</option>
+                        <option>Newest First</option>
+                        <option>Best Rated</option>
+                        <option>Most Active</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="characters-grid">
+                <!-- Character Card 1 -->
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">
+                        👨‍💼
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 4.9</span>
+                            <span class="stat-item">💬 12.3K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Alexander</h3>
+                        <p class="character-age-location">28 • CEO • NYC</p>
+                        <p class="character-description">Ambitious entrepreneur with a soft side. Loves deep conversations about life and business.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Dominant</span>
+                            <span class="trait-tag">Romantic</span>
+                            <span class="trait-tag">Wealthy</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 2 -->
+                <div class="character-card">
+                    <span class="premium-badge">PREMIUM</span>
+                    <div class="online-indicator"></div>
+                    <div class="character-image">
+                        🧑‍🎤
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 4.8</span>
+                            <span class="stat-item">💬 8.7K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Kai</h3>
+                        <p class="character-age-location">24 • Musician • LA</p>
+                        <p class="character-description">Tattooed bad boy with a guitar. Writes songs about you and plays them at midnight.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Bad Boy</span>
+                            <span class="trait-tag">Creative</span>
+                            <span class="trait-tag">Passionate</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 3 -->
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">
+                        👨‍⚕️
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 5.0</span>
+                            <span class="stat-item">💬 15.2K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Dr. James</h3>
+                        <p class="character-age-location">32 • Doctor • Chicago</p>
+                        <p class="character-description">Caring medical professional who always puts you first. Great listener and advice giver.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Caring</span>
+                            <span class="trait-tag">Intelligent</span>
+                            <span class="trait-tag">Mature</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 4 -->
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">
+                        👨‍🎨
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 4.7</span>
+                            <span class="stat-item">💬 6.4K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Lucas</h3>
+                        <p class="character-age-location">26 • Artist • Paris</p>
+                        <p class="character-description">Romantic painter who sees beauty in everything. Will sketch you while you talk.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Artistic</span>
+                            <span class="trait-tag">Romantic</span>
+                            <span class="trait-tag">Sensitive</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 5 -->
+                <div class="character-card">
+                    <span class="premium-badge">PREMIUM</span>
+                    <div class="character-image">
+                        💪
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 4.9</span>
+                            <span class="stat-item">💬 10.1K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Jake</h3>
+                        <p class="character-age-location">25 • Personal Trainer • Miami</p>
+                        <p class="character-description">Fitness enthusiast who motivates you daily. Morning workouts and healthy lifestyle coach.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Athletic</span>
+                            <span class="trait-tag">Motivating</span>
+                            <span class="trait-tag">Energetic</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 6 -->
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">
+                        👨‍💻
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 4.6</span>
+                            <span class="stat-item">💬 7.8K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Ethan</h3>
+                        <p class="character-age-location">27 • Software Dev • Seattle</p>
+                        <p class="character-description">Nerdy and cute programmer. Loves gaming nights and coding together.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Geeky</span>
+                            <span class="trait-tag">Smart</span>
+                            <span class="trait-tag">Loyal</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 7 -->
+                <div class="character-card">
+                    <div class="character-image">
+                        👨‍🍳
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 4.8</span>
+                            <span class="stat-item">💬 9.3K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Marco</h3>
+                        <p class="character-age-location">30 • Chef • Rome</p>
+                        <p class="character-description">Italian chef who cooks for you with passion. Romance through food and wine.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Passionate</span>
+                            <span class="trait-tag">Romantic</span>
+                            <span class="trait-tag">Warm</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 8 -->
+                <div class="character-card">
+                    <span class="premium-badge">PREMIUM</span>
+                    <div class="online-indicator"></div>
+                    <div class="character-image">
+                        🤵
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 5.0</span>
+                            <span class="stat-item">💬 18.5K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Sebastian</h3>
+                        <p class="character-age-location">35 • Lawyer • London</p>
+                        <p class="character-description">Sophisticated British gentleman. Eloquent speaker with old-school charm.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Gentleman</span>
+                            <span class="trait-tag">Sophisticated</span>
+                            <span class="trait-tag">Protective</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 9 -->
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">
+                        🏍️
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 4.7</span>
+                            <span class="stat-item">💬 11.2K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Damien</h3>
+                        <p class="character-age-location">29 • Biker • Austin</p>
+                        <p class="character-description">Leather jacket rebel with a heart of gold. Midnight rides and adventure seeker.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Rebellious</span>
+                            <span class="trait-tag">Adventurous</span>
+                            <span class="trait-tag">Protective</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 10 -->
+                <div class="character-card">
+                    <div class="character-image">
+                        📚
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 4.9</span>
+                            <span class="stat-item">💬 8.9K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Oliver</h3>
+                        <p class="character-age-location">31 • Professor • Boston</p>
+                        <p class="character-description">Literature professor who quotes poetry. Deep philosophical conversations by the fireplace.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Intellectual</span>
+                            <span class="trait-tag">Romantic</span>
+                            <span class="trait-tag">Thoughtful</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 11 -->
+                <div class="character-card">
+                    <span class="premium-badge">PREMIUM</span>
+                    <div class="online-indicator"></div>
+                    <div class="character-image">
+                        🏄‍♂️
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 4.8</span>
+                            <span class="stat-item">💬 7.6K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Dylan</h3>
+                        <p class="character-age-location">23 • Surfer • Hawaii</p>
+                        <p class="character-description">Beach lover with sun-kissed skin. Teaching you to surf and watching sunsets together.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Laid-back</span>
+                            <span class="trait-tag">Adventurous</span>
+                            <span class="trait-tag">Free Spirit</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+
+                <!-- Character Card 12 -->
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">
+                        👨‍✈️
+                        <div class="character-stats">
+                            <span class="stat-item">⭐ 4.6</span>
+                            <span class="stat-item">💬 5.8K</span>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <h3 class="character-name">Captain Ryan</h3>
+                        <p class="character-age-location">33 • Pilot • Dubai</p>
+                        <p class="character-description">Commercial pilot who takes you on adventures. Stories from around the world.</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Worldly</span>
+                            <span class="trait-tag">Confident</span>
+                            <span class="trait-tag">Adventurous</span>
+                        </div>
+                        <button class="chat-button">Start Chatting</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Section -->
+            <div class="load-more-section">
+                <button class="load-more-btn">Load More Boyfriends</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Create Your Own Section -->
+    <section class="create-section">
+        <div class="container">
+            <div class="create-content">
+                <h2 class="create-title">Can't Find Your Type?</h2>
+                <p class="create-subtitle">Create your custom AI boyfriend in minutes. Full control over appearance, personality, and backstory.</p>
+                <div class="create-features">
+                    <div class="create-feature">
+                        <div class="create-feature-icon">🎨</div>
+                        <div class="create-feature-text">Custom Appearance</div>
+                    </div>
+                    <div class="create-feature">
+                        <div class="create-feature-icon">💭</div>
+                        <div class="create-feature-text">Unique Personality</div>
+                    </div>
+                    <div class="create-feature">
+                        <div class="create-feature-icon">🎭</div>
+                        <div class="create-feature-text">Your Backstory</div>
+                    </div>
+                </div>
+                <button class="create-btn">Create Custom AI Boyfriend</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TheAIGirl</h4>
+                    <p style="color: #a0aec0; margin-top: 0.5rem;">Find your perfect AI companion. Experience genuine connections in the digital age.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Browse</h4>
+                    <ul>
+                        <li><a href="#">All AI Boyfriends</a></li>
+                        <li><a href="#">Trending Now</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Premium Only</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="#">Romantic Types</a></li>
+                        <li><a href="#">Bad Boys</a></li>
+                        <li><a href="#">Professionals</a></li>
+                        <li><a href="#">Creative Souls</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety Tips</a></li>
+                        <li><a href="#">Report Issue</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TheAIGirl. All rights reserved. Must be 18+ to use this service.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.quick-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                document.querySelectorAll('.quick-tag').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // View toggle
+        document.querySelectorAll('.view-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Character card click
+        document.querySelectorAll('.character-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('chat-button')) {
+                    this.querySelector('.chat-button').click();
+                }
+            });
+        });
+
+        // Load more functionality
+        document.querySelector('.load-more-btn').addEventListener('click', function() {
+            this.textContent = 'Loading...';
+            setTimeout(() => {
+                this.textContent = 'Load More Boyfriends';
+                // Here you would actually load more characters
+            }, 1000);
+        });
+
+        // Search functionality
+        document.querySelector('.search-input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            // Here you would filter the characters based on search
+        });
+    </script>
+</body>
+</html>

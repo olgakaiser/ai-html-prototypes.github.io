@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iGirl — Горизонтальный таймлайн с датами</title>
+  <style>
+    :root{
+      --bg:#0b0d12; --card:#121621; --muted:#93a0bd; --text:#e7ecf6;
+      --rail:#2a3550; --accent:#6aa8ff; --accent2:#7df0c4; --accent3:#ffa76a; --accent4:#f7ce68;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Inter",Arial; background:linear-gradient(180deg,#0b0d12 0%,#0e1220 100%); color:var(--text)}
+    .wrap{max-width:1200px;margin:0 auto;padding:28px 20px 56px}
+    header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    h1{font-size:22px;margin:0}
+    .subtitle{font-size:13px;color:var(--muted)}
+    .legend{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--rail);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:12px}
+    .dot{width:8px;height:8px;border-radius:50%}
+
+    /* HORIZONTAL TIMELINE */
+    .viewport{margin-top:18px;background:rgba(255,255,255,.02);border:1px solid var(--rail);border-radius:var(--radius);overflow:auto;scroll-snap-type:x mandatory}
+    .lane{position:relative;min-width:940px; /* wider than Notion page; enables horizontal scroll */
+          padding:40px 24px 32px}
+    .rail-line{position:absolute;left:0;right:0;top:84px;height:4px;background:linear-gradient(90deg,var(--rail),transparent);border-radius:4px}
+
+    .steps{display:grid;grid-template-columns:repeat(4,minmax(240px,1fr));gap:28px}
+
+    .step{position:relative;scroll-snap-align:start}
+    .pin{position:absolute;top:72px;left:18px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#0b0d12;font-weight:800;border:2px solid rgba(0,0,0,.2)}
+    .pin.m1{background:var(--accent)}
+    .pin.m23{background:var(--accent2)}
+    .pin.m4{background:var(--accent3)}
+    .pin.m4p{background:var(--accent4)}
+
+    .card{background:var(--card);border:1px solid var(--rail);border-radius:var(--radius);padding:16px 16px 14px;box-shadow:0 6px 28px rgba(0,0,0,.35)}
+    .date{font-size:12px;color:var(--muted);margin-bottom:6px}
+    .phase{font-size:16px;margin:0 0 6px 0}
+    .focus{font-size:12px;color:var(--muted)}
+
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px}
+    .box{background:#0e1320;border:1px solid var(--rail);border-radius:12px;padding:10px}
+    .box h4{margin:0 0 6px 0;font-size:12px;color:#b7c2dc}
+    ul{margin:0;padding-left:18px}
+    li{margin:5px 0}
+
+    .note{margin-top:10px;color:var(--muted);font-size:12px}
+
+    @media(max-width:780px){
+      .cols{grid-template-columns:1fr}
+      .lane{min-width:800px}
+      .steps{grid-template-columns:repeat(4, minmax(200px,1fr))}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Горизонтальный таймлайн — iGirl</h1>
+        <div class="subtitle">Старт: 1 сентября 2025 · Сквозной план SEO + Web (до запуска и масштабирования)</div>
+      </div>
+      <div class="legend">
+        <span class="badge"><span class="dot" style="background:var(--accent)"></span>Месяц 1</span>
+        <span class="badge"><span class="dot" style="background:var(--accent2)"></span>Месяцы 2–3</span>
+        <span class="badge"><span class="dot" style="background:var(--accent3)"></span>Месяц 4</span>
+        <span class="badge"><span class="dot" style="background:var(--accent4)"></span>4+ (масштабирование)</span>
+      </div>
+    </header>
+
+    <div class="viewport" aria-label="Горизонтальный таймлайн">
+      <div class="lane">
+        <div class="rail-line" aria-hidden="true"></div>
+
+        <div class="steps">
+          <!-- Сентябрь 2025: М1 -->
+          <section class="step">
+            <div class="pin m1" aria-hidden="true">1</div>
+            <div class="card">
+              <div class="date">Сентябрь 2025</div>
+              <h3 class="phase">Месяц 1 — Фундамент</h3>
+              <div class="focus">SEO‑аудит, семантика → CMS, базовый контент</div>
+              <div class="cols">
+                <div class="box">
+                  <h4>SEO</h4>
+                  <ul>
+                    <li>Полный SEO‑аудит (техничка, UX, E‑E‑A‑T, ссылки, конкуренты)</li>
+                    <li>Сбор и кластеризация семантики; структура, H1</li>
+                    <li>Стратегия на 12 мес. + контент‑план на 6 мес.</li>
+                    <li>Настройка аналитики: GSC, Я.Вебмастер, Topvisor</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <h4>Web</h4>
+                  <ul>
+                    <li>Выбор/установка WordPress на тестовом домене</li>
+                    <li>Настройка CMS (язык, безопасность, структура, плагины)</li>
+                    <li>Структура страниц и меню</li>
+                    <li><b>ТЗ на 3 коммерческие и 2 инфо‑страницы (после семантики)</b></li>
+                    <li>5 SEO‑текстов: проверка и публикация, оптимизация изображений</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Октябрь–Ноябрь 2025: М2–3 -->
+          <section class="step">
+            <div class="pin m23" aria-hidden="true">2–3</div>
+            <div class="card">
+              <div class="date">Октябрь–Ноябрь 2025</div>
+              <h3 class="phase">Месяцы 2–3 — Контент + Дизайн</h3>
+              <div class="focus">Регулярные публикации, прототип/визуал</div>
+              <div class="cols">
+                <div class="box">
+                  <h4>SEO</h4>
+                  <ul>
+                    <li>ТЗ для копирайтеров по контент‑плану</li>
+                    <li>Еженедельные публикации статей</li>
+                    <li>Мониторинг позиций в Topvisor, отчётность</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <h4>Web</h4>
+                  <ul>
+                    <li>ТЗ на прототип дизайна</li>
+                    <li>Визуальная концепция + согласование макетов</li>
+                    <li>Favicon/Apple Icon, адаптация под платформы</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Декабрь 2025: М4 -->
+          <section class="step">
+            <div class="pin m4" aria-hidden="true">4</div>
+            <div class="card">
+              <div class="date">Декабрь 2025</div>
+              <h3 class="phase">Месяц 4 — Запуск</h3>
+              <div class="focus">Аналитика, тестирование, перенос в прод</div>
+              <div class="cols">
+                <div class="box">
+                  <h4>SEO</h4>
+                  <ul>
+                    <li>Продолжение публикаций</li>
+                    <li>Подготовка к ссылочной кампании (анкоры, доноры)</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <h4>Web</h4>
+                  <ul>
+                    <li>Счётчики, сквозная аналитика, CRM, цели, формы</li>
+                    <li>Тестирование: десктоп/мобайл, функционал, анимации, тех.файлы</li>
+                    <li>Перенос: делегирование домена, SSL, архив старой версии</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Январь 2026 и далее: 4+ -->
+          <section class="step">
+            <div class="pin m4p" aria-hidden="true">∞</div>
+            <div class="card">
+              <div class="date">Январь 2026 и далее</div>
+              <h3 class="phase">4+ — Масштабирование</h3>
+              <div class="focus">Ссылочное + устойчивый контент</div>
+              <div class="cols">
+                <div class="box">
+                  <h4>SEO</h4>
+                  <ul>
+                    <li>Ссылочная стратегия: размещения, внешние статьи</li>
+                    <li>Ежемесячные отчёты по ссылкам и публикациям</li>
+                    <li>Горизонт устойчивого роста: 12–16 месяцев</li>
+                  </ul>
+                </div>
+                <div class="box">
+                  <h4>Web</h4>
+                  <ul>
+                    <li>Поддержка, доработки, микротюнинг</li>
+                    <li>Оптимизация на базе аналитики/CRM</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

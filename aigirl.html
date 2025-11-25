@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iGirl — Объединённый таймлайн SEO + Web</title>
+  <style>
+    :root{
+      --bg:#0b0d12;
+      --card:#121621;
+      --muted:#7f8aa3;
+      --text:#e7ecf6;
+      --accent:#6aa8ff; /* М1 */
+      --accent-2:#7df0c4; /* М2–3 */
+      --accent-3:#ffa76a; /* М4+ */
+      --ring:#2a3550;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Inter",Arial,"Apple Color Emoji","Segoe UI Emoji";background:linear-gradient(180deg,#0b0d12 0%,#0e1220 100%);color:var(--text)}
+    .wrap{max-width:1200px;margin:0 auto;padding:28px 20px 64px}
+    header{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-bottom:18px}
+    header h1{font-size:22px;margin:0}
+    header .subtitle{color:var(--muted);font-size:14px}
+
+    .legend{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--ring);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:12px}
+    .dot{width:8px;height:8px;border-radius:50%}
+
+    .timeline{position:relative;margin-top:24px}
+    .rail{position:absolute;left:20px;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--ring),transparent);border-radius:4px}
+
+    .item{position:relative;margin-left:56px;margin-bottom:18px}
+    .item .pin{position:absolute;left:-44px;top:18px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#0b0d12;font-weight:800}
+    .pin.m1{background:var(--accent)}
+    .pin.m23{background:var(--accent-2)}
+    .pin.m4{background:var(--accent-3)}
+
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);padding:18px;box-shadow:0 6px 28px rgba(0,0,0,.35)}
+    .head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .phase{font-size:18px;margin:0}
+    .focus{font-size:12px;color:var(--muted)}
+
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+    .box{background:#0e1320;border:1px solid var(--ring);border-radius:12px;padding:12px}
+    .box h4{margin:0 0 8px 0;font-size:13px;color:#b7c2dc}
+    ul{margin:0;padding-left:18px}
+    li{margin:6px 0}
+
+    details{margin-top:10px}
+    summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;color:var(--accent);font-weight:600}
+    summary::-webkit-details-marker{display:none}
+
+    .footnote{margin-top:18px;color:var(--muted);font-size:12px}
+
+    @media(max-width:780px){.cols{grid-template-columns:1fr}.rail{left:16px}.item{margin-left:52px}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Объединённый таймлайн SEO + Web — iGirl</h1>
+      <div class="subtitle">Сквозной план: техбаза → контент → дизайн → ссылки/продакшн</div>
+    </div>
+    <div class="legend">
+      <span class="badge"><span class="dot" style="background:var(--accent)"></span>Месяц 1</span>
+      <span class="badge"><span class="dot" style="background:var(--accent-2)"></span>Месяцы 2–3</span>
+      <span class="badge"><span class="dot" style="background:var(--accent-3)"></span>Месяц 4+</span>
+    </div>
+  </header>
+
+  <section class="timeline">
+    <div class="rail"></div>
+
+    <!-- Месяц 1 -->
+    <article class="item">
+      <div class="pin m1">1</div>
+      <div class="card">
+        <div class="head">
+          <h3 class="phase">Месяц 1 — Фундамент: SEO‑аудит + Техбаза сайта</h3>
+          <span class="focus">Фокус: аудит, семантика, CMS, базовый контент</span>
+        </div>
+        <div class="cols">
+          <div class="box">
+            <h4>SEO‑работы</h4>
+            <ul>
+              <li>SEO‑аудит: анализ конкурентов</li>
+              <li>Анализ поискового спроса, сбор семантики, кластеризация</li>
+              <li>Стратегия SEO на 12 мес. и контент‑план на 6 мес.</li>
+              <li>Настройка аналитики: GSC, Я.Вебмастер, Topvisor</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>Web‑работы</h4>
+            <ul>
+              <li>Выбор и установка CMS на тестовом домене</li>
+              <li>Настройка CMS: язык, структура, безопасность, плагины</li>
+              <li>Создание структуры страниц и меню</li>
+              <li>Формирование ТЗ на 3 коммерческие и 2 инфостраницы (на основе семантики)</li>
+              <li>Написание и публикация 5 SEO‑текстов с оптимизацией изображений</li>
+            </ul>
+          </div>
+        </div>
+        <div class="box" style="margin-top:12px">
+          <h4>Результаты месяца</h4>
+          <ul>
+            <li>SEO‑аудит, стратегия и точки роста</li>
+            <li>Семантическое ядро + контент‑план</li>
+            <li>Рабочий тестовый сайт на WordPress с 5 базовыми страницами</li>
+            <li>Настроенная структура и аналитика</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Месяцы 2–3 -->
+    <article class="item">
+      <div class="pin m23">2–3</div>
+      <div class="card">
+        <div class="head">
+          <h3 class="phase">Месяцы 2–3 — Контент + Дизайн</h3>
+          <span class="focus">Фокус: регулярный контент, прототип и брендирование</span>
+        </div>
+        <div class="cols">
+          <div class="box">
+            <h4>SEO‑работы</h4>
+            <ul>
+              <li>Генерация текстов</li>
+              <li>Публикация статей по контент‑плану (еженедельно)</li>
+              <li>Мониторинг позиций через Topvisor</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>Web‑работы</h4>
+            <ul>
+              <li>Формирование ТЗ на прототип дизайна</li>
+              <li>Создание и согласование визуальной концепции</li>
+              <li>Разработка дизайн‑макетов</li>
+              <li>Установка favicon и Apple Icon, адаптация под платформы</li>
+            </ul>
+          </div>
+        </div>
+        <div class="box" style="margin-top:12px">
+          <h4>Результаты периода</h4>
+          <ul>
+            <li>SEO‑оптимизированные статьи на сайте (регулярные публикации)</li>
+            <li>Готовый прототип дизайна + брендовые иконки</li>
+            <li>Согласованная визуальная концепция</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Месяц 4-6 -->
+    <article class="item">
+      <div class="pin m4">4+</div>
+      <div class="card">
+        <div class="head">
+          <h3 class="phase">Месяц 4-6 — Масштабирование и Запуск</h3>
+          <span class="focus">Фокус: ссылки, аналитика, тестирование, продакшн</span>
+        </div>
+        <div class="cols">
+          <div class="box">
+            <h4>SEO‑работы</h4>
+            <ul>
+              <li>Продолжение контент‑стратегии и публикаций</li>
+              <li>Разработка ссылочной стратегии: анкоры, доноры</li>
+              <li>Размещение в каталогах, агрегаторах, внешние статьи</li>
+              <li>Отчёты по ссылкам и внешним публикациям</li>
+            </ul>
+          </div>
+          <div class="box">
+            <h4>Web‑работы</h4>
+            <ul>
+              <li>Установка счётчиков и сквозной аналитики</li>
+              <li>Интеграция CRM, настройка целей и форм связи</li>
+              <li>Тестирование: десктоп/мобайл, функционал, анимации, тех.файлы</li>
+              <li>Перенос на основной домен: делегирование, SSL, архив старой версии</li>
+            </ul>
+          </div>
+        </div>
+        <div class="box" style="margin-top:12px">
+          <h4>Результаты</h4>
+          <ul>
+            <li>Новый сайт на основном домене, готовый к продвижению</li>
+            <li>Настроенная аналитика и CRM</li>
+            <li>Внешние ссылки и публикации</li>
+            <li>Постепенный рост органического трафика (12–16 мес. горизонт)</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+</div>
+</body>
+</html>

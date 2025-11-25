@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iGirl — Таймлайн Web‑разработки</title>
+  <style>
+    :root{
+      --bg:#0b0d12;
+      --card:#121621;
+      --muted:#7f8aa3;
+      --text:#e7ecf6;
+      --accent:#6aa8ff;  /* М1 */
+      --accent-2:#7df0c4;/* М2–3 */
+      --accent-3:#ffa76a;/* М4 */
+      --ring:#2a3550;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,"Inter",Arial,"Apple Color Emoji","Segoe UI Emoji";background:linear-gradient(180deg,#0b0d12 0%,#0e1220 100%);color:var(--text)}
+    .wrap{max-width:1100px;margin:0 auto;padding:28px 20px 64px}
+    header{display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}
+    header h1{font-size:22px;letter-spacing:.2px;margin:0}
+    header .subtitle{color:var(--muted);font-size:14px}
+
+    .legend{display:flex;gap:10px;flex-wrap:wrap}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--ring);padding:8px 10px;border-radius:999px;color:var(--muted);font-size:12px}
+    .dot{width:8px;height:8px;border-radius:50%}
+
+    .timeline{position:relative;margin-top:24px}
+    .rail{position:absolute;left:20px;top:0;bottom:0;width:4px;background:linear-gradient(180deg,var(--ring),transparent);border-radius:4px}
+
+    .item{position:relative;margin-left:56px;margin-bottom:18px}
+    .item .pin{position:absolute;left:-44px;top:18px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;color:#0b0d12;font-weight:800}
+    .pin.m1{background:var(--accent)}
+    .pin.m23{background:var(--accent-2)}
+    .pin.m4{background:var(--accent-3)}
+
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:var(--radius);padding:18px 18px 14px;box-shadow:0 6px 28px rgba(0,0,0,.35)}
+    .head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+    .phase{font-size:18px;margin:0}
+    .focus{font-size:12px;color:var(--muted)}
+
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+    .box{background:#0e1320;border:1px solid var(--ring);border-radius:12px;padding:12px}
+    .box h4{margin:0 0 8px 0;font-size:13px;color:#b7c2dc}
+    ul{margin:0;padding-left:18px}
+    li{margin:6px 0}
+
+    details{margin-top:10px}
+    summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;color:var(--accent);font-weight:600}
+    summary::-webkit-details-marker{display:none}
+
+    .footnote{margin-top:18px;color:var(--muted);font-size:12px}
+
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .chip{border:1px dashed var(--ring);color:var(--muted);padding:6px 10px;border-radius:999px;font-size:12px}
+
+    @media (max-width: 780px){
+      .cols{grid-template-columns:1fr}
+      .rail{left:16px}
+      .item{margin-left:52px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Таймлайн Web‑разработки — iGirl</h1>
+        <div class="subtitle">Безопасный запуск на WordPress: тестовый домен → дизайн → продакшн (4 месяца)</div>
+      </div>
+      <div class="legend" aria-label="Легенда этапов">
+        <span class="badge"><span class="dot" style="background:var(--accent)"></span>Месяц 1</span>
+        <span class="badge"><span class="dot" style="background:var(--accent-2)"></span>Месяцы 2–3</span>
+        <span class="badge"><span class="dot" style="background:var(--accent-3)"></span>Месяц 4</span>
+      </div>
+    </header>
+
+    <section class="timeline" role="list">
+      <div class="rail" aria-hidden="true"></div>
+
+      <!-- Месяц 1 -->
+      <article class="item" role="listitem">
+        <div class="pin m1" aria-hidden="true">1</div>
+        <div class="card">
+          <div class="head">
+            <h3 class="phase">Месяц 1 — Техническая основа и планирование</h3>
+            <span class="focus">Фокус: CMS/хостинг, настройка CMS, базовый контент</span>
+          </div>
+          <div class="cols">
+            <div class="box">
+              <h4>Техническая подготовка</h4>
+              <ul>
+                <li>Выбор и согласование CMS + хостинга</li>
+                <li>Настройка тестового домена и хостинга</li>
+                <li>Установка CMS на тестовом домене</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>Настройка CMS</h4>
+              <ul>
+                <li>Конфигурация WordPress (язык, структура ссылок, безопасность)</li>
+                <li>Установка необходимых плагинов</li>
+                <li>Создание структуры страниц и меню</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cols">
+            <div class="box">
+              <h4>Контентная подготовка</h4>
+              <ul>
+                <li>ТЗ для 3 коммерческих и 2 информационных страниц</li>
+                <li>Написание и проверка 5 SEO‑текстов</li>
+                <li>Создание пользовательских полей, публикация с оптимизацией изображений</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>Результаты месяца</h4>
+              <ul>
+                <li>Рабочий тестовый сайт на WordPress</li>
+                <li>Базовый контент (5 страниц)</li>
+                <li>Настроенная структура и плагины</li>
+                <li>Организованная система управления проектом</li>
+              </ul>
+            </div>
+          </div>
+          <details>
+            <summary>Организация и коммуникации</summary>
+            <div class="cols" style="margin-top:10px">
+              <div class="box">
+                <h4>Процессы</h4>
+                <ul>
+                  <li>Notion/Google Drive: кабинет проекта и клиента</li>
+                  <li>Teamlead/PM: постановка задач, еженедельные отчёты</li>
+                </ul>
+              </div>
+              <div class="box">
+                <h4>Выходы</h4>
+                <ul>
+                  <li>Отчёт по проделанной работе и установленным плагинам</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- Месяцы 2–3 -->
+      <article class="item" role="listitem">
+        <div class="pin m23" aria-hidden="true">2–3</div>
+        <div class="card">
+          <div class="head">
+            <h3 class="phase">Месяцы 2–3 — Дизайн и прототипирование</h3>
+            <span class="focus">Фокус: ТЗ на прототип, визуальная концепция, иконки</span>
+          </div>
+          <div class="cols">
+            <div class="box">
+              <h4>Разработка дизайна</h4>
+              <ul>
+                <li>Формирование ТЗ на прототип дизайна</li>
+                <li>Создание визуальной концепции сайта</li>
+                <li>Согласование дизайн‑макетов</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>Брендинг и иконки</h4>
+              <ul>
+                <li>Установка favicon для всех устройств</li>
+                <li>Создание Apple Icon</li>
+                <li>Адаптация под различные платформы</li>
+              </ul>
+            </div>
+          </div>
+          <div class="box" style="margin-top:12px">
+            <h4>Результаты периода</h4>
+            <ul>
+              <li>Готовый прототип дизайна</li>
+              <li>Полный набор иконок для брендинга</li>
+              <li>Согласованная визуальная концепция</li>
+            </ul>
+          </div>
+          <details>
+            <summary>Управление проектом</summary>
+            <div class="cols" style="margin-top:10px">
+              <div class="box">
+                <h4>Коммуникации</h4>
+                <ul>
+                  <li>Еженедельные синхронизации PM/тимлидов</li>
+                  <li>Еженедельные отчёты по прогрессу</li>
+                </ul>
+              </div>
+              <div class="box">
+                <h4>Контроль</h4>
+                <ul>
+                  <li>Ведение задач, ежедневные дейли‑встречи</li>
+                </ul>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <!-- Месяц 4 -->
+      <article class="item" role="listitem">
+        <div class="pin m4" aria-hidden="true">4</div>
+        <div class="card">
+          <div class="head">
+            <h3 class="phase">Месяц 4 — Финализация и запуск</h3>
+            <span class="focus">Фокус: аналитика, тестирование, перенос в продакшн</span>
+          </div>
+          <div class="cols">
+            <div class="box">
+              <h4>Настройка аналитики</h4>
+              <ul>
+                <li>Установка счётчиков, сквозной аналитики и CRM</li>
+                <li>Создание целей в Метрике</li>
+                <li>Настройка форм связи и передачи заявок</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>Тестирование</h4>
+              <ul>
+                <li>Десктоп и мобайл, функционал, анимации</li>
+                <li>Проверка технических файлов</li>
+              </ul>
+            </div>
+          </div>
+          <div class="cols">
+            <div class="box">
+              <h4>Перенос в продакшн</h4>
+              <ul>
+                <li>Делегирование домена на новый хостинг</li>
+                <li>Установка SSL‑сертификата</li>
+                <li>Архивирование старой версии</li>
+                <li>Перенос на основной домен</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h4>Результаты</h4>
+              <ul>
+                <li>Полностью готовый сайт на основном домене</li>
+                <li>Настроенная аналитика и отслеживание</li>
+                <li>Архивная копия старого сайта</li>
+                <li>Инструкции по работе с CMS</li>
+              </ul>
+            </div>
+          </div>
+          <details>
+            <summary>Особенности запуска</summary>
+            <div class="chips">
+              <span class="chip">Безопасно: разработка на тестовом домене</span>
+              <span class="chip">Техническая готовность: аналитика + CRM</span>
+              <span class="chip">Адаптивность: проверка на всех устройствах</span>
+              <span class="chip">Документация: инструкции для CMS</span>
+              <span class="chip">Минимум простоя: архив старой версии</span>
+              <span class="chip">Итоговый срок: 4 месяца</span>
+            </div>
+          </details>
+        </div>
+      </article>
+    </section>
+
+    <p class="footnote">Готово к встраиванию в Notion через блок «Embed». Измени пункты под свой стек/брендинг при необходимости.</p>
+  </div>
+</body>
+</html>

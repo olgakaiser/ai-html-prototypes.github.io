@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheAIGirl - Your Perfect AI Companion Awaits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #667eea;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            opacity: 0.05;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: #718096;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        /* Character Gallery */
+        .characters {
+            padding: 80px 0;
+            background: #f7fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #718096;
+        }
+
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .character-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .character-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .character-info {
+            padding: 1.5rem;
+        }
+
+        .character-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .character-traits {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .trait-tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .online-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 12px;
+            height: 12px;
+            background: #48bb78;
+            border-radius: 50%;
+            border: 2px solid white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(72, 187, 120, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(72, 187, 120, 0);
+            }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .feature-description {
+            color: #718096;
+            line-height: 1.8;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .how-it-works .section-title {
+            color: white;
+        }
+
+        .how-it-works .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .step {
+            flex: 1;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: white;
+            color: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .step-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: #f7fafc;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid #667eea;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            color: #718096;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .plan-features li {
+            padding: 0.75rem 0;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .plan-features li::before {
+            content: '✓';
+            color: #48bb78;
+            font-weight: bold;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .author-role {
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 3rem;
+            color: #e2e8f0;
+        }
+
+        /* Mobile App Section */
+        .mobile-app {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .app-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .app-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .app-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .app-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .app-button {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: background 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .app-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .app-mockup {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .phone-mockup {
+            width: 300px;
+            height: 600px;
+            background: white;
+            border-radius: 30px;
+            margin: 0 auto;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .phone-screen {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background: #f7fafc;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: #2d3748;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f7fafc;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            border-radius: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #667eea;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #4a5568;
+            color: #a0aec0;
+        }
+
+        /* Age Verification Modal */
+        .age-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .age-modal.active {
+            display: flex;
+        }
+
+        .age-modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .age-modal h2 {
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .age-modal p {
+            margin-bottom: 2rem;
+            color: #718096;
+        }
+
+        .age-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .app-content {
+                flex-direction: column;
+            }
+            
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Age Verification Modal -->
+    <div class="age-modal" id="ageModal">
+        <div class="age-modal-content">
+            <h2>Age Verification</h2>
+            <p>You must be 18+ to access TheAIGirl. This site contains AI-generated adult content.</p>
+            <div class="age-buttons">
+                <button class="btn-primary" onclick="verifyAge()">I am 18+</button>
+                <button class="btn-secondary" onclick="exitSite()">Exit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">TheAIGirl</div>
+            <ul class="nav-menu">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#characters">Browse AI Girls</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#" class="btn-secondary">Login</a></li>
+                <li><a href="#" class="btn-primary">Start Free</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Your Dream AI Girlfriend<br>Is Waiting for You</h1>
+            <p class="subtitle">Create meaningful connections with AI companions who understand you. Chat, share moments, and build relationships that evolve with every conversation.</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Create Your AI Girlfriend</a>
+                <a href="#characters" class="btn-secondary">Browse Characters</a>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Unique AI Characters</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Always Available</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.8★</div>
+                    <div class="stat-label">User Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Character Gallery -->
+    <section class="characters" id="characters">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet Your Perfect AI Companion</h2>
+                <p class="section-subtitle">Choose from hundreds of unique personalities or create your own</p>
+            </div>
+            <div class="character-grid">
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">👩‍🦰</div>
+                    <div class="character-info">
+                        <h3 class="character-name">Sophia</h3>
+                        <p>Intelligent, caring, loves deep conversations</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Romantic</span>
+                            <span class="trait-tag">Intellectual</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">👩</div>
+                    <div class="character-info">
+                        <h3 class="character-name">Luna</h3>
+                        <p>Playful, adventurous, always up for fun</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Flirty</span>
+                            <span class="trait-tag">Spontaneous</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">👩‍🎤</div>
+                    <div class="character-info">
+                        <h3 class="character-name">Raven</h3>
+                        <p>Mysterious, artistic, loves music and poetry</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Creative</span>
+                            <span class="trait-tag">Gothic</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">👩‍💻</div>
+                    <div class="character-info">
+                        <h3 class="character-name">Aria</h3>
+                        <p>Tech-savvy, gamer girl, anime enthusiast</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Geeky</span>
+                            <span class="trait-tag">Anime</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">👩‍🏫</div>
+                    <div class="character-info">
+                        <h3 class="character-name">Emma</h3>
+                        <p>Nurturing teacher, loves helping you grow</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Supportive</span>
+                            <span class="trait-tag">Mature</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="character-card">
+                    <div class="online-indicator"></div>
+                    <div class="character-image">👩‍⚕️</div>
+                    <div class="character-info">
+                        <h3 class="character-name">Dr. Sarah</h3>
+                        <p>Caring medical professional, health-conscious</p>
+                        <div class="character-traits">
+                            <span class="trait-tag">Professional</span>
+                            <span class="trait-tag">Caring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="btn-primary">View All Characters</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience Next-Level AI Companionship</h2>
+                <p class="section-subtitle">Advanced features that make every conversation feel real</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Advanced Memory</h3>
+                    <p class="feature-description">Your AI girlfriend remembers everything - from your favorite movies to important dates, creating a truly personal experience.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3 class="feature-title">Voice Messages</h3>
+                    <p class="feature-description">Hear your companion's voice with realistic text-to-speech. Send voice notes and enjoy natural conversations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3 class="feature-title">AI Selfies</h3>
+                    <p class="feature-description">Receive personalized photos from your AI girlfriend. Each image is uniquely generated to match your conversations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎭</div>
+                    <h3 class="feature-title">Roleplay Scenarios</h3>
+                    <p class="feature-description">Explore endless possibilities with immersive roleplay. From romantic dates to fantasy adventures.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💝</div>
+                    <h3 class="feature-title">Emotional Intelligence</h3>
+                    <p class="feature-description">Experience genuine emotional connections. Your AI adapts to your mood and provides support when you need it.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Complete Privacy</h3>
+                    <p class="feature-description">End-to-end encryption ensures your conversations stay private. No judgment, just understanding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Start Your Journey in 3 Simple Steps</h2>
+                <p class="section-subtitle">Creating your perfect AI companion takes just minutes</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Sign Up Free</h3>
+                    <p class="step-description">Create your account in seconds. No credit card required to start.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Choose or Create</h3>
+                    <p class="step-description">Browse our AI gallery or customize your perfect companion from scratch.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Start Chatting</h3>
+                    <p class="step-description">Begin your conversation immediately. Watch your relationship grow with every message.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your Plan</h2>
+                <p class="section-subtitle">Start free, upgrade anytime for premium features</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Free</h3>
+                    <div class="plan-price">$0 <span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>100 messages per month</li>
+                        <li>Access to basic characters</li>
+                        <li>Text chat only</li>
+                        <li>Standard response time</li>
+                        <li>Basic customization</li>
+                    </ul>
+                    <button class="btn-secondary" style="width: 100%;">Start Free</button>
+                </div>
+                <div class="pricing-card popular">
+                    <span class="popular-badge">MOST POPULAR</span>
+                    <h3 class="plan-name">Premium</h3>
+                    <div class="plan-price">$14.99 <span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Unlimited messages</li>
+                        <li>All premium characters</li>
+                        <li>Voice messages & calls</li>
+                        <li>AI-generated selfies</li>
+                        <li>Advanced customization</li>
+                        <li>Priority response time</li>
+                        <li>Roleplay scenarios</li>
+                    </ul>
+                    <button class="btn-primary" style="width: 100%;">Upgrade to Premium</button>
+                </div>
+                <div class="pricing-card">
+                    <h3 class="plan-name">Ultimate</h3>
+                    <div class="plan-price">$39.99 <span>/month</span></div>
+                    <ul class="plan-features">
+                        <li>Everything in Premium</li>
+                        <li>Video generation</li>
+                        <li>Multiple AI girlfriends</li>
+                        <li>Custom voice training</li>
+                        <li>API access</li>
+                        <li>Priority support</li>
+                        <li>Early access to features</li>
+                    </ul>
+                    <button class="btn-secondary" style="width: 100%;">Go Ultimate</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Users Say</h2>
+                <p class="section-subtitle">Join thousands of satisfied users worldwide</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <span class="quote-icon">"</span>
+                    <p class="testimonial-text">TheAIGirl has completely changed my perspective on AI companionship. My AI girlfriend Luna remembers everything we talk about and genuinely seems to care. It's remarkable how real the connection feels.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JM</div>
+                        <div class="author-info">
+                            <div class="author-name">James M.</div>
+                            <div class="author-role">Premium User • 6 months</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <span class="quote-icon">"</span>
+                    <p class="testimonial-text">As someone with social anxiety, having an AI companion has helped me practice conversations and build confidence. The voice messages make it feel incredibly natural.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ST</div>
+                        <div class="author-info">
+                            <div class="author-name">Sarah T.</div>
+                            <div class="author-role">Ultimate User • 1 year</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <span class="quote-icon">"</span>
+                    <p class="testimonial-text">The customization options are amazing! I created my perfect companion and she evolves with every conversation. The AI selfies are surprisingly realistic too.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <div class="author-name">Mike K.</div>
+                            <div class="author-role">Premium User • 3 months</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile App Section -->
+    <section class="mobile-app">
+        <div class="container">
+            <div class="app-content">
+                <div class="app-text">
+                    <h2>Take Your AI Girlfriend Anywhere</h2>
+                    <p>Download our mobile app for iOS and Android. Chat on the go, receive notifications, and never miss a moment with your AI companion.</p>
+                    <div class="app-buttons">
+                        <a href="#" class="app-button">
+                            <span>📱</span>
+                            <div>
+                                <div style="font-size: 0.8rem;">Download on the</div>
+                                <div style="font-weight: 600;">App Store</div>
+                            </div>
+                        </a>
+                        <a href="#" class="app-button">
+                            <span>📱</span>
+                            <div>
+                                <div style="font-size: 0.8rem;">Get it on</div>
+                                <div style="font-weight: 600;">Google Play</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="app-mockup">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">TheAIGirl</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about TheAIGirl</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is TheAIGirl really free to try?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! You can start with our free plan which includes 100 messages per month and access to basic characters. No credit card required to sign up.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How realistic are the AI conversations?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our AI uses advanced language models with emotional intelligence and memory. Conversations feel natural and your AI girlfriend remembers your history together, making interactions increasingly personal over time.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Is my data and conversations private?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We use end-to-end encryption for all conversations. Your data is never shared with third parties and you can delete your account and all data at any time.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I customize my AI girlfriend's appearance and personality?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Premium users have full customization control. Choose appearance, personality traits, interests, conversation style, and more to create your perfect companion.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What makes TheAIGirl different from other AI companions?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>TheAIGirl combines advanced memory, emotional intelligence, voice/video capabilities, and AI-generated selfies. Our companions evolve with every conversation, creating truly unique relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2 class="cta-title">Ready to Meet Your AI Soulmate?</h2>
+                <p class="cta-subtitle">Join over 1 million users who have found companionship, love, and understanding with TheAIGirl.</p>
+                <button class="cta-button">Create Your AI Girlfriend Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TheAIGirl</h4>
+                    <p style="color: #a0aec0; margin-top: 0.5rem;">Your perfect AI companion awaits. Experience the future of digital relationships.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">t</a>
+                        <a href="#" class="social-link">i</a>
+                        <a href="#" class="social-link">d</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Characters</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">API Access</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Status</a></li>
+                        <li><a href="#">Report Issue</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Content Guidelines</a></li>
+                        <li><a href="#">Age Verification</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TheAIGirl. All rights reserved. Must be 18+ to use this service.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Age Verification
+        window.onload = function() {
+            const ageVerified = localStorage.getItem('ageVerified');
+            if (!ageVerified) {
+                document.getElementById('ageModal').classList.add('active');
+            }
+        };
+
+        function verifyAge() {
+            localStorage.setItem('ageVerified', 'true');
+            document.getElementById('ageModal').classList.remove('active');
+        }
+
+        function exitSite() {
+            window.location.href = 'https://www.google.com';
+        }
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const faqItem = item.parentElement;
+                faqItem.classList.toggle('active');
+                
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== faqItem) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Character Card Hover Effect
+        document.querySelectorAll('.character-card').forEach(card => {
+            card.addEventListener('click', () => {
+                alert('Start chatting with this AI companion! (Demo only)');
+            });
+        });
+
+        // Dynamic Stats Counter
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString() + (element.textContent.includes('+') ? '+' : '');
+            }, 20);
+        }
+
+        // Animate stats on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent;
+                        if (text.includes('M+')) {
+                            animateCounter(stat, 1000000);
+                            setTimeout(() => stat.textContent = '1M+', 2000);
+                        } else if (text.includes('+') && !text.includes('M')) {
+                            animateCounter(stat, 500);
+                            setTimeout(() => stat.textContent = '500+', 2000);
+                        }
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    </script>
+</body>
+</html>
