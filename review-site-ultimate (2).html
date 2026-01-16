@@ -1,0 +1,1967 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opiniones TFG TFM - Reseñas Reales de Servicios Académicos | opinionestfmtfg.com</title>
+    <meta name="description" content="Lee opiniones reales y verificadas sobre servicios de TFG y TFM. Compara empresas, deja tu reseña y ayuda a otros estudiantes a tomar decisiones informadas.">
+    <style>
+        /* ============================================
+           RESET Y VARIABLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1e40af;
+            --secondary-color: #3b82f6;
+            --accent-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-gray: #e5e7eb;
+            --white: #ffffff;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+            --border-radius: 12px;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ============================================
+           HEADER / NAVEGACIÓN
+           ============================================ */
+        .header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 36px;
+        }
+
+        .logo-text span {
+            color: var(--secondary-color);
+        }
+
+        .nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+
+        .nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            padding: 12px 28px;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-accent {
+            background-color: var(--accent-color);
+        }
+
+        .btn-accent:hover {
+            background-color: #059669;
+        }
+
+        .btn-lg {
+            padding: 16px 36px;
+            font-size: 18px;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: var(--white);
+            padding: 90px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================
+           DISCLAIMER BANNER
+           ============================================ */
+        .disclaimer-banner {
+            background-color: var(--warning-color);
+            color: var(--white);
+            padding: 12px 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* ============================================
+           VALUE PROPOSITION (4 КАРТОЧКИ)
+           ============================================ */
+        .value-section {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 19px;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary-color);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 40px;
+        }
+
+        .value-card:nth-child(1) .value-icon {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+        }
+
+        .value-card:nth-child(2) .value-icon {
+            background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);
+        }
+
+        .value-card:nth-child(3) .value-icon {
+            background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+        }
+
+        .value-card:nth-child(4) .value-icon {
+            background: linear-gradient(135deg, #10b981 0%, #34d399 100%);
+        }
+
+        .value-card:nth-child(5) .value-icon {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+        }
+
+        .value-card:nth-child(6) .value-icon {
+            background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+        }
+
+        .value-card h3 {
+            font-size: 24px;
+            margin-bottom: 18px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .value-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* ============================================
+           EMPRESAS GRID
+           ============================================ */
+        .empresas-section {
+            padding: 80px 0;
+        }
+
+        .empresas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .empresa-card {
+            background-color: var(--white);
+            padding: 35px 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .empresa-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--secondary-color);
+        }
+
+        .empresa-logo {
+            width: 140px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            font-size: 20px;
+        }
+
+        .empresa-name {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .empresa-rating {
+            color: var(--warning-color);
+            font-size: 24px;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        .empresa-reviews {
+            color: var(--text-light);
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .empresa-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* ============================================
+           PROCESO (3 PASOS)
+           ============================================ */
+        .proceso-section {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .proceso-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        @media (min-width: 1200px) {
+            .proceso-steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .proceso-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--white);
+            font-size: 40px;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .proceso-step h3 {
+            font-size: 24px;
+            margin-bottom: 18px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .proceso-step p {
+            color: var(--text-light);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        /* ============================================
+           OPINIONES / TESTIMONIALS (ПОЛНЫЕ)
+           ============================================ */
+        .opiniones-section {
+            padding: 80px 0;
+        }
+
+        .opiniones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .opinion-card {
+            background-color: var(--white);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            border-left: 5px solid var(--accent-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .opinion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .opinion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 18px;
+        }
+
+        .opinion-author-info {
+            flex: 1;
+        }
+
+        .opinion-author {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .opinion-date {
+            color: var(--text-light);
+            font-size: 13px;
+        }
+
+        .verificado-badge {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .opinion-rating {
+            color: var(--warning-color);
+            font-size: 22px;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+        }
+
+        .opinion-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 18px;
+            line-height: 1.4;
+        }
+
+        .opinion-text {
+            color: var(--text-light);
+            line-height: 1.8;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .opinion-empresa {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--bg-gray);
+            color: var(--text-light);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .opinion-empresa strong {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* ============================================
+           FORO/DISCUSIONES
+           ============================================ */
+        .foro-section {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .foro-topics {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .topic-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--secondary-color);
+            transition: all 0.3s;
+        }
+
+        .topic-card:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .topic-card.topic-alert {
+            border-left-color: var(--danger-color);
+            background-color: #fef2f2;
+        }
+
+        .topic-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 18px;
+            align-items: flex-start;
+        }
+
+        .topic-icon {
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+
+        .topic-info {
+            flex: 1;
+        }
+
+        .topic-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .topic-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .topic-author strong {
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .topic-category {
+            background-color: var(--bg-gray);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .topic-excerpt {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 18px;
+            font-size: 16px;
+        }
+
+        .topic-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding-top: 18px;
+            border-top: 2px solid var(--bg-gray);
+            margin-bottom: 15px;
+        }
+
+        .stat-item {
+            font-size: 14px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .topic-link {
+            color: var(--secondary-color);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .topic-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           FORMULARIO DE RESEÑA
+           ============================================ */
+        .review-form-section {
+            padding: 80px 0;
+        }
+
+        .review-form {
+            max-width: 800px;
+            margin: 50px auto 0;
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        .form-label.required::after {
+            content: " *";
+            color: var(--danger-color);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--bg-gray);
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .form-textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .rating-input {
+            display: flex;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .star-input {
+            font-size: 36px;
+            cursor: pointer;
+            color: var(--bg-gray);
+            transition: color 0.2s;
+        }
+
+        .star-input:hover,
+        .star-input.active {
+            color: var(--warning-color);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            margin-top: 4px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .form-checkbox label {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* ============================================
+           BLOG SECTION
+           ============================================ */
+        .blog-section {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-title {
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 18px;
+            font-size: 15px;
+        }
+
+        .blog-link {
+            color: var(--secondary-color);
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 15px;
+        }
+
+        .blog-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ============================================
+           CTA BANNER
+           ============================================ */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #059669 100%);
+            color: var(--white);
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-size: 42px;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .cta-banner p {
+            font-size: 20px;
+            margin-bottom: 35px;
+            opacity: 0.95;
+        }
+
+        .btn-white {
+            background-color: var(--white);
+            color: var(--accent-color);
+        }
+
+        .btn-white:hover {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 60px 0 25px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .footer-description {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-size: 14px;
+        }
+
+        .footer-disclaimer {
+            background-color: rgba(245, 158, 11, 0.2);
+            border-left: 4px solid var(--warning-color);
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .empresas-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+
+            .review-form {
+                padding: 30px;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+           UTILITIES
+           ============================================ */
+        .text-center {
+            text-align: center;
+        }
+
+        .mt-30 {
+            margin-top: 30px;
+        }
+
+        .mb-30 {
+            margin-bottom: 30px;
+        }
+    
+        /* TOP 3 COMPANIES DETAILED CARDS */
+        .top-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold) 0%, #f59e0b 100%);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .top-company-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            padding: 45px;
+            margin-bottom: 40px;
+            border: 3px solid transparent;
+            position: relative;
+        }
+
+        .top-company-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold) 0%, var(--secondary-color) 100%);
+        }
+
+        .rank-badge {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold) 0%, #f59e0b 100%);
+            color: var(--white);
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+
+        .company-name {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .company-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meta-label {
+            font-size: 12px;
+            color: var(--text-light);
+            text-transform: uppercase;
+        }
+
+        .meta-value {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .rating-score {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .rating-stars {
+            color: var(--gold);
+            font-size: 24px;
+        }
+
+        .company-best-for {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+        }
+
+        .company-best-for h4 {
+            font-size: 16px;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .company-advantages ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .company-advantages li::before {
+            content: "✓";
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .student-quote {
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--accent-color);
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            font-style: italic;
+        }
+
+        /* REST OF COMPANIES TABLE */
+        .companies-table {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .company-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            border-bottom: 1px solid var(--bg-gray);
+        }
+
+        .company-row-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-light);
+            width: 60px;
+        }
+
+        .company-row-name {
+            flex: 1;
+            font-weight: 600;
+        }
+
+        .company-row-rating {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin-right: 20px;
+        }
+
+        /* CRITERIA EVALUATION */
+        .criterion-card {
+            background-color: var(--white);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .criterion-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        /* RED FLAGS */
+        .red-flag-card {
+            background-color: var(--white);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--danger-color);
+        }
+
+        .red-flag-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .faq-question {
+            padding: 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 25px 25px;
+            max-height: 500px;
+        }
+
+        /* HELPFUL BUTTONS */
+        .review-helpful {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .helpful-btn {
+            background-color: var(--bg-light);
+            border: 1px solid var(--bg-gray);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         HEADER
+         ============================================ -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">
+                    <span class="logo-icon">⭐</span>
+                    <div class="logo-text">
+                        Opiniones<span>TFG</span>
+                    </div>
+                </a>
+                <nav class="nav">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#empresas">Empresas</a>
+                    <a href="#opiniones">Opiniones</a>
+                    <a href="#foro">Foro</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contacto">Contacto</a>
+                </nav>
+                <a href="#dejar-opinion" class="btn btn-accent">Dejar Opinión</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         DISCLAIMER BANNER
+         ============================================ -->
+    <div class="disclaimer-banner">
+        ⚠️ OpinionesTFG.com NO está afiliada a ninguna empresa de TFG/TFM. Somos una plataforma independiente de reseñas.
+    </div>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Comparte tu Experiencia con Servicios TFG y TFM</h1>
+            <p class="hero-subtitle">
+                Tu opinión ayuda a miles de estudiantes a tomar decisiones informadas. 
+                Lee reseñas reales, compara empresas y encuentra el mejor servicio para tu proyecto académico.
+            </p>
+            <div class="hero-cta">
+                <a href="#dejar-opinion" class="btn btn-lg btn-accent">Dejar mi Opinión</a>
+                <a href="#empresas" class="btn btn-lg">Ver Empresas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         VALUE PROPOSITION (6 PUNTOS)
+         ============================================ -->
+    <section class="value-section">
+        <div class="container">
+            <h2 class="section-title">¿Por qué son importantes las opiniones?</h2>
+            <p class="section-subtitle">
+                Las opiniones reales de estudiantes son fundamentales para tomar decisiones informadas
+            </p>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Decisiones Informadas</h3>
+                    <p>Las experiencias de otros estudiantes te ayudan a elegir el servicio que mejor se adapta a tus necesidades académicas.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🛡️</div>
+                    <h3>Evita Estafas</h3>
+                    <p>Identifica empresas poco confiables y protege tu inversión leyendo opiniones verificadas de usuarios reales.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💬</div>
+                    <h3>Comunidad Transparente</h3>
+                    <p>Forma parte de una comunidad que comparte experiencias honestas para ayudar a otros estudiantes.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">✓</div>
+                    <h3>Reseñas Verificadas</h3>
+                    <p>Todas las opiniones pasan por moderación para garantizar autenticidad y ayudarte a encontrar servicios confiables.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📊</div>
+                    <h3>Comparación Objetiva</h3>
+                    <p>Compara precios, calidad y plazos de diferentes empresas en un solo lugar para encontrar la mejor opción.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⭐</div>
+                    <h3>Calidad Garantizada</h3>
+                    <p>Las empresas con mejores valoraciones consistentes demuestran compromiso con la satisfacción del estudiante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         EMPRESAS GRID
+         ============================================ -->
+    <section class="empresas-section" id="empresas">
+        <div class="container">
+            <h2 class="section-title">Empresas Calificadas por Estudiantes</h2>
+            <p class="section-subtitle">
+                Descubre qué dicen los estudiantes sobre estos servicios de TFG y TFM
+            </p>
+            <div class="empresas-grid">
+                <!-- FILA 1: TOP 3 -->
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #10b981 0%, #34d399 100%);">HMT</div>
+                    <div class="empresa-name">HazMiTrabajo</div>
+                    <div class="empresa-rating">★★★★★</div>
+                    <div class="empresa-reviews">187 opiniones</div>
+                    <span class="empresa-badge">🏆 Verificada</span>
+                </div>
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">ExpertU</div>
+                    <div class="empresa-name">Experto Universitario</div>
+                    <div class="empresa-rating">★★★★★</div>
+                    <div class="empresa-reviews">156 opiniones</div>
+                    <span class="empresa-badge">🏆 Verificada</span>
+                </div>
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">Aprobare</div>
+                    <div class="empresa-name">Aprobare</div>
+                    <div class="empresa-rating">★★★★★</div>
+                    <div class="empresa-reviews">143 opiniones</div>
+                    <span class="empresa-badge">🏆 Verificada</span>
+                </div>
+                
+                <!-- FILA 2 -->
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">TareaU</div>
+                    <div class="empresa-name">Tarea Universitaria</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">128 opiniones</div>
+                    <span class="empresa-badge">🏆 Verificada</span>
+                </div>
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);">ApruébaT</div>
+                    <div class="empresa-name">Apruebatodo</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">112 opiniones</div>
+                </div>
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);">TusTraU</div>
+                    <div class="empresa-name">Tus Trabajos Universitarios</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">98 opiniones</div>
+                </div>
+                
+                <!-- FILA 3 -->
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);">TuTFG</div>
+                    <div class="empresa-name">Tu TFG a Medida</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">91 opiniones</div>
+                </div>
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%);">TuTFG</div>
+                    <div class="empresa-name">Tu TFG</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">87 opiniones</div>
+                    <span class="empresa-badge">🏆 Verificada</span>
+                </div>
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);">TusTraT</div>
+                    <div class="empresa-name">Tus Trabajos a Tiempo</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">76 opiniones</div>
+                </div>
+                
+                <!-- FILA 4 -->
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%); color: #333;">CompraTFG</div>
+                    <div class="empresa-name">Comprartfg.info</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">64 opiniones</div>
+                </div>
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%); color: #333;">TrabajosFG</div>
+                    <div class="empresa-name">Trabajos Fin de Grado</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">58 opiniones</div>
+                </div>
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #a855f7 0%, #d946ef 100%);">TFGyMás</div>
+                    <div class="empresa-name">TFG y Más</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">52 opiniones</div>
+                </div>
+                
+                <!-- FILA 5 -->
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #14b8a6 0%, #2dd4bf 100%);">AyudaTFG</div>
+                    <div class="empresa-name">Ayudatfgtfm</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">47 opiniones</div>
+                </div>
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); color: #333;">LaCasaTFG</div>
+                    <div class="empresa-name">Lacasa del TFG</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">43 opiniones</div>
+                </div>
+                <div class="empresa-card">
+                    <div class="empresa-logo" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: #333;">UENA</div>
+                    <div class="empresa-name">Universitarios en Apuros</div>
+                    <div class="empresa-rating">★★★★☆</div>
+                    <div class="empresa-reviews">38 opiniones</div>
+                </div>
+            </div>
+            <div class="text-center mt-30">
+                <a href="#registrar" class="btn">Registra tu Empresa</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROCESO (4 PASOS)
+         ============================================ -->
+    <section class="proceso-section">
+        <div class="container">
+            <h2 class="section-title">Cómo Funciona en 4 Simples Pasos</h2>
+            <p class="section-subtitle">
+                Encuentra la empresa perfecta en minutos con nuestro sistema inteligente
+            </p>
+            <div class="proceso-steps">
+                <div class="proceso-step">
+                    <div class="step-number">1</div>
+                    <h3>Busca la Empresa</h3>
+                    <p>Usa nuestro buscador inteligente para encontrar empresas. Filtra por especialidad, precio o calificación.</p>
+                </div>
+                <div class="proceso-step">
+                    <div class="step-number">2</div>
+                    <h3>Consulta Análisis IA</h3>
+                    <p>Nuestro sistema de IA analiza 500+ opiniones y calcula puntuación objetiva por 6 criterios de calidad.</p>
+                </div>
+                <div class="proceso-step">
+                    <div class="step-number">3</div>
+                    <h3>Lee Opiniones Reales</h3>
+                    <p>Revisa experiencias verificadas de estudiantes. Conoce ventajas, desventajas y resultados obtenidos.</p>
+                </div>
+                <div class="proceso-step">
+                    <div class="step-number">4</div>
+                    <h3>Decide Informado</h3>
+                    <p>Con información objetiva y transparente, elige la empresa perfecta para tu TFG o TFM con confianza.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         OPINIONES / TESTIMONIALS (ПОЛНЫЕ ОТЗЫВЫ)
+         ============================================ -->
+    <section class="opiniones-section" id="opiniones">
+        <div class="container">
+            <h2 class="section-title">Lo que Dicen los Estudiantes</h2>
+            <p class="section-subtitle">
+                Opiniones reales y verificadas de estudiantes que han utilizado estos servicios
+            </p>
+            <div class="opiniones-grid">
+                <div class="opinion-card">
+                    <div class="opinion-header">
+                        <div class="opinion-author-info">
+                            <div class="opinion-author">María González R.</div>
+                            <div class="opinion-date">15 de diciembre de 2024</div>
+                        </div>
+                        <span class="verificado-badge">✓ Verificado</span>
+                    </div>
+                    <div class="opinion-rating">★★★★★</div>
+                    <div class="opinion-title">Excelente servicio, muy profesionales</div>
+                    <p class="opinion-text">
+                        Contraté sus servicios para mi TFG de Enfermería y quedé muy satisfecha. Desde el primer momento la atención fue excelente, me asignaron un tutor especializado en ciencias de la salud que entendió perfectamente mis necesidades. El trabajo fue original, bien estructurado y con bibliografía de calidad. Cumplieron todos los plazos y me permitieron hacer revisiones sin problema. Aprobé con un 8,5. Totalmente recomendable.
+                    </p>
+                    <div class="opinion-empresa">📋 Empresa: <strong>Aprobare</strong></div>
+                </div>
+
+                <div class="opinion-card">
+                    <div class="opinion-header">
+                        <div class="opinion-author-info">
+                            <div class="opinion-author">Carlos Rodríguez M.</div>
+                            <div class="opinion-date">10 de diciembre de 2024</div>
+                        </div>
+                        <span class="verificado-badge">✓ Verificado</span>
+                    </div>
+                    <div class="opinion-rating">★★★★☆</div>
+                    <div class="opinion-title">Buen trabajo, cumplieron los plazos</div>
+                    <p class="opinion-text">
+                        Mi experiencia fue positiva en general. Contraté el servicio para mi TFM de Ingeniería Industrial con poco tiempo. El trabajo final fue bueno, aunque tuve que solicitar algunas correcciones menores en la parte técnica. Lo positivo es que respetaron los plazos acordados y el informe antiplagio fue satisfactorio. La comunicación fue fluida y profesional. Aprobé con un 7. Por el precio pagado (850€), considero que la relación calidad-precio es correcta.
+                    </p>
+                    <div class="opinion-empresa">📋 Empresa: <strong>Tu TFG a Medida</strong></div>
+                </div>
+
+                <div class="opinion-card">
+                    <div class="opinion-header">
+                        <div class="opinion-author-info">
+                            <div class="opinion-author">Laura Martínez S.</div>
+                            <div class="opinion-date">5 de diciembre de 2024</div>
+                        </div>
+                        <span class="verificado-badge">✓ Verificado</span>
+                    </div>
+                    <div class="opinion-rating">★★☆☆☆</div>
+                    <div class="opinion-title">Decepcionante, no siguieron mis indicaciones</div>
+                    <p class="opinion-text">
+                        Lamentablemente mi experiencia no fue positiva. Pagué 620€ por un TFG de Psicología y el trabajo entregado no seguía las indicaciones que había proporcionado detalladamente. La estructura era genérica y faltaba profundidad en el análisis. Pedí correcciones pero no mejoraron mucho. Tuve que rehacerlo casi por completo. La atención al cliente fue lenta y poco receptiva. No lo recomendaría. Al final no lo presenté y perdí el dinero.
+                    </p>
+                    <div class="opinion-empresa">📋 Empresa: <strong>Haz Mi Trabajo</strong></div>
+                </div>
+
+                <div class="opinion-card">
+                    <div class="opinion-header">
+                        <div class="opinion-author-info">
+                            <div class="opinion-author">Javier Pérez L.</div>
+                            <div class="opinion-date">1 de diciembre de 2024</div>
+                        </div>
+                        <span class="verificado-badge">✓ Verificado</span>
+                    </div>
+                    <div class="opinion-rating">★★★★★</div>
+                    <div class="opinion-title">Me salvaron en el último momento</div>
+                    <p class="opinion-text">
+                        Contacté con ellos faltando solo 3 semanas para la entrega y aún así consiguieron ayudarme. Estaba desesperado porque no había avanzado nada con mi TFG de ADE. El equipo fue muy comprensivo, me asignaron un redactor senior y trabajaron contracreloj. El resultado fue mejor de lo esperado: trabajo original, bien citado, con análisis económico sólido. Aprobé con un 8 y mi tutora me felicitó. Muy agradecido con la rapidez y profesionalidad. Vale cada euro.
+                    </p>
+                    <div class="opinion-empresa">📋 Empresa: <strong>Experto Universitario</strong></div>
+                </div>
+
+                <div class="opinion-card">
+                    <div class="opinion-header">
+                        <div class="opinion-author-info">
+                            <div class="opinion-author">Ana Sánchez T.</div>
+                            <div class="opinion-date">28 de noviembre de 2024</div>
+                        </div>
+                        <span class="verificado-badge">✓ Verificado</span>
+                    </div>
+                    <div class="opinion-rating">★★★★☆</div>
+                    <div class="opinion-title">Buena relación calidad-precio</div>
+                    <p class="opinion-text">
+                        Necesitaba ayuda específicamente con la parte metodológica de mi TFG de Psicología que era lo que más me costaba. Por 380€ me ayudaron a estructurar correctamente la investigación, diseñar la metodología y analizar los datos. El resto lo hice yo. El trato fue cercano, respondían rápido a mis dudas y el tutor demostró conocer bien el tema. Para lo que necesitaba fue perfecto. No puedo opinar sobre trabajos completos, pero su asesoría parcial funcionó bien.
+                    </p>
+                    <div class="opinion-empresa">📋 Empresa: <strong>Universitarios en Apuros</strong></div>
+                </div>
+
+                <div class="opinion-card">
+                    <div class="opinion-header">
+                        <div class="opinion-author-info">
+                            <div class="opinion-author">Miguel Torres V.</div>
+                            <div class="opinion-date">20 de noviembre de 2024</div>
+                        </div>
+                        <span class="verificado-badge">✓ Verificado</span>
+                    </div>
+                    <div class="opinion-rating">★★★★★</div>
+                    <div class="opinion-title">Profesionales de verdad, repetiré</div>
+                    <p class="opinion-text">
+                        He utilizado sus servicios en dos ocasiones: primero para mi TFG de Derecho (aprobé con 9) y ahora para mi TFM de Abogacía (sobresaliente). En ambas ocasiones la experiencia fue excelente. Se nota que tienen experiencia, cuentan con profesionales especializados en cada área y la infraestructura es seria (factura, plataforma propia, soporte constante). Los precios no son los más baratos pero la calidad lo justifica. 100% recomendable si buscas garantías.
+                    </p>
+                    <div class="opinion-empresa">📋 Empresa: <strong>La Casa del TFG</strong></div>
+                </div>
+
+                <div class="opinion-card">
+                    <div class="opinion-header">
+                        <div class="opinion-author-info">
+                            <div class="opinion-author">Elena Jiménez P.</div>
+                            <div class="opinion-date">15 de noviembre de 2024</div>
+                        </div>
+                        <span class="verificado-badge">✓ Verificado</span>
+                    </div>
+                    <div class="opinion-rating">★★★★☆</div>
+                    <div class="opinion-title">Buena experiencia en líneas generales</div>
+                    <p class="opinion-text">
+                        Contraté su servicio para mi TFG de Educación Infantil. El proceso fue transparente desde el inicio: presupuesto claro, plazos definidos y comunicación constante. El trabajo fue entregado a tiempo y cumplió con los requisitos formales. Pedí algunas modificaciones en la redacción de dos apartados y las hicieron sin problema. Mi tutora dio el visto bueno y aprobé con un 7,5. El único pero es que el precio (475€) me pareció algo elevado para 35 páginas.
+                    </p>
+                    <div class="opinion-empresa">📋 Empresa: <strong>Aprobare</strong></div>
+                </div>
+
+                <div class="opinion-card">
+                    <div class="opinion-header">
+                        <div class="opinion-author-info">
+                            <div class="opinion-author">David Fernández G.</div>
+                            <div class="opinion-date">10 de noviembre de 2024</div>
+                        </div>
+                        <span class="verificado-badge">✓ Verificado</span>
+                    </div>
+                    <div class="opinion-rating">★★★★★</div>
+                    <div class="opinion-title">Superaron mis expectativas completamente</div>
+                    <p class="opinion-text">
+                        Después de leer muchas opiniones mixtas estaba nervioso, pero decidí contratar para mi TFM de Marketing Digital. Fue la mejor decisión. El redactor no solo siguió mis indicaciones al pie de la letra, sino que aportó ideas valiosas que enriquecieron el trabajo. Incluía casos prácticos actualizados, análisis de mercado real y propuestas innovadoras. Mi tutor quedó impresionado. Saqué un 9,5 y he recibido ofertas laborales gracias a ese trabajo. Inversión totalmente justificada.
+                    </p>
+                    <div class="opinion-empresa">📋 Empresa: <strong>Tu TFG a Medida</strong></div>
+                </div>
+
+                <div class="opinion-card">
+                    <div class="opinion-header">
+                        <div class="opinion-author-info">
+                            <div class="opinion-author">Patricia Ruiz M.</div>
+                            <div class="opinion-date">5 de noviembre de 2024</div>
+                        </div>
+                        <span class="verificado-badge">✓ Verificado</span>
+                    </div>
+                    <div class="opinion-rating">★★★☆☆</div>
+                    <div class="opinion-title">Experiencia regular, mejorable</div>
+                    <p class="opinion-text">
+                        Mi experiencia fue mixta. Contraté para un TFG de Turismo. El trabajo llegó a tiempo y sin plagio, eso es positivo. Sin embargo, la calidad del contenido fue justa, muy genérica y con poca profundidad en el análisis del sector turístico. Pedí revisiones que hicieron, pero seguía siendo mejorable. Al final aprobé con un 6. Por 420€ esperaba más. El servicio al cliente fue correcto pero nada excepcional. No sé si volvería a contratarlos.
+                    </p>
+                    <div class="opinion-empresa">📋 Empresa: <strong>Experto Universitario</strong></div>
+                </div>
+            </div>
+            <div class="text-center mt-30">
+                <a href="#ver-mas" class="btn">Ver Más Opiniones</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FORO/DISCUSIONES
+         ============================================ -->
+    <section class="foro-section" id="foro">
+        <div class="container">
+            <h2 class="section-title">Foro de la Comunidad</h2>
+            <p class="section-subtitle">
+                Únete a la conversación: comparte experiencias, pregunta dudas y ayuda a otros estudiantes
+            </p>
+            
+            <div class="foro-topics">
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon">💬</div>
+                        <div class="topic-info">
+                            <h3 class="topic-title">¿HazMiTrabajo.es es confiable? Experiencias reales</h3>
+                            <div class="topic-meta">
+                                <span class="topic-author">Por: <strong>CapitanaMarvel</strong></span>
+                                <span class="topic-date">9 de enero, 2025</span>
+                                <span class="topic-category">General</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="topic-excerpt">
+                        Busco opiniones sobre hazmitrabajo.es. He visto su página y parece legal, pero quiero saber si alguien tiene experiencias reales antes de contratar. He leído opiniones mixtas y quiero estar segura antes de invertir mi dinero...
+                    </p>
+                    <div class="topic-stats">
+                        <span class="stat-item">👁️ 3,421 vistas</span>
+                        <span class="stat-item">💬 127 respuestas</span>
+                        <span class="stat-item">⏰ Última: hace 2 horas</span>
+                    </div>
+                    <a href="#topic-1" class="topic-link">Ver discusión completa →</a>
+                </div>
+
+                <div class="topic-card topic-alert">
+                    <div class="topic-header">
+                        <div class="topic-icon">⚠️</div>
+                        <div class="topic-info">
+                            <h3 class="topic-title">ALERTA: Lista actualizada de empresas FRAUDE</h3>
+                            <div class="topic-meta">
+                                <span class="topic-author">Por: <strong>PepeHuelva</strong></span>
+                                <span class="topic-date">17 de junio, 2024</span>
+                                <span class="topic-category">Advertencias</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="topic-excerpt">
+                        CUIDADO con "Graduado Para Todo" - es una estafa integral. Extranjeros que escriben con faltas de ortografía, copian de Google, y una vez tienen tu dinero desaparecen. No contestan emails ni llamadas. Me cobraron 700€ y nunca recibí nada...
+                    </p>
+                    <div class="topic-stats">
+                        <span class="stat-item">👁️ 8,932 vistas</span>
+                        <span class="stat-item">💬 213 respuestas</span>
+                        <span class="stat-item">🔥 Popular</span>
+                    </div>
+                    <a href="#topic-2" class="topic-link">Ver discusión completa →</a>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon">✅</div>
+                        <div class="topic-info">
+                            <h3 class="topic-title">Mi experiencia POSITIVA con TuTFG a Medida - Detalles</h3>
+                            <div class="topic-meta">
+                                <span class="topic-author">Por: <strong>Rafa730</strong></span>
+                                <span class="topic-date">15 de julio, 2024</span>
+                                <span class="topic-category">Experiencias</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="topic-excerpt">
+                        Quiero compartir mi experiencia positiva para equilibrar las opiniones. Me ayudaron con mi TFG de Derecho y me entregaron un producto de calidad. El tutor fue muy profesional, cumplieron todos los plazos y la comunicación fue excelente. Aprobé con un 9...
+                    </p>
+                    <div class="topic-stats">
+                        <span class="stat-item">👁️ 2,156 vistas</span>
+                        <span class="stat-item">💬 45 respuestas</span>
+                        <span class="stat-item">⏰ Última: hace 1 día</span>
+                    </div>
+                    <a href="#topic-3" class="topic-link">Ver discusión completa →</a>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon">❓</div>
+                        <div class="topic-info">
+                            <h3 class="topic-title">Guía: Cómo identificar si una página es confiable</h3>
+                            <div class="topic-meta">
+                                <span class="topic-author">Por: <strong>PABLO NN QQ</strong></span>
+                                <span class="topic-date">11 de enero, 2025</span>
+                                <span class="topic-category">Consejos</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="topic-excerpt">
+                        Después de mi mala experiencia con Avanza y Fórmate, siempre reviso estos puntos: avisos legales, política de privacidad, CIF/NIF visible, datos de contacto reales. Si la empresa no se identifica claramente, desconfía porque no cumple normativa RGPD...
+                    </p>
+                    <div class="topic-stats">
+                        <span class="stat-item">👁️ 5,673 vistas</span>
+                        <span class="stat-item">💬 89 respuestas</span>
+                        <span class="stat-item">📌 Fijado</span>
+                    </div>
+                    <a href="#topic-4" class="topic-link">Ver discusión completa →</a>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon">💡</div>
+                        <div class="topic-info">
+                            <h3 class="topic-title">Checklist completo: Qué verificar ANTES de contratar</h3>
+                            <div class="topic-meta">
+                                <span class="topic-author">Por: <strong>saulortibe</strong></span>
+                                <span class="topic-date">11 de enero, 2025</span>
+                                <span class="topic-category">Guías</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="topic-excerpt">
+                        Lista completa basada en experiencias: ✓ CIF/NIF registrado ✓ Aviso legal completo ✓ Política de privacidad ✓ Métodos de pago seguros (no HalCash) ✓ Contacto verificable ✓ Informe antiplagio incluido ✓ Garantía de devolución ✓ Entregas parciales...
+                    </p>
+                    <div class="topic-stats">
+                        <span class="stat-item">👁️ 4,021 vistas</span>
+                        <span class="stat-item">💬 67 respuestas</span>
+                        <span class="stat-item">⭐ Destacado</span>
+                    </div>
+                    <a href="#topic-5" class="topic-link">Ver discusión completa →</a>
+                </div>
+
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-icon">💰</div>
+                        <div class="topic-info">
+                            <h3 class="topic-title">Comparativa real de precios: ¿cuál es justo para TFG?</h3>
+                            <div class="topic-meta">
+                                <span class="topic-author">Por: <strong>moderna</strong></span>
+                                <span class="topic-date">8 de agosto, 2024</span>
+                                <span class="topic-category">Precios</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="topic-excerpt">
+                        He pedido presupuestos a 8 empresas para un TFG de ADE de 40 páginas. Los precios van desde 350€ hasta 850€. ¿Qué es razonable? ¿El más barato será malo? ¿El más caro garantiza calidad? Comparto todos los presupuestos y mis conclusiones...
+                    </p>
+                    <div class="topic-stats">
+                        <span class="stat-item">👁️ 6,789 vistas</span>
+                        <span class="stat-item">💬 156 respuestas</span>
+                        <span class="stat-item">⏰ Última: hace 5 horas</span>
+                    </div>
+                    <a href="#topic-6" class="topic-link">Ver discusión completa →</a>
+                </div>
+            </div>
+
+            <div class="text-center mt-30">
+                <a href="#foro-completo" class="btn">Ver Todos los Temas del Foro</a>
+                <a href="#crear-tema" class="btn btn-accent">Crear Nuevo Tema</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FORMULARIO DE RESEÑA
+         ============================================ -->
+    <section class="review-form-section" id="dejar-opinion">
+        <div class="container">
+            <h2 class="section-title">Deja tu Opinión</h2>
+            <p class="section-subtitle">
+                Comparte tu experiencia y ayuda a otros estudiantes a tomar decisiones informadas
+            </p>
+            <form class="review-form">
+                <div class="form-group">
+                    <label class="form-label required">Selecciona la Empresa</label>
+                    <select class="form-select" required>
+                        <option value="">-- Selecciona una empresa --</option>
+                        <option value="tutfg">Tu TFG a Medida</option>
+                        <option value="aprobare">Aprobare</option>
+                        <option value="uena">Universitarios en Apuros</option>
+                        <option value="expertou">Experto Universitario</option>
+                        <option value="hazmitrabajo">Haz Mi Trabajo</option>
+                        <option value="tutfm">TutFM Online</option>
+                        <option value="comprartfg">Comprar TFG</option>
+                        <option value="lacasatfg">La Casa del TFG</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Tu Calificación Global</label>
+                    <div class="rating-input">
+                        <span class="star-input" data-rating="1">☆</span>
+                        <span class="star-input" data-rating="2">☆</span>
+                        <span class="star-input" data-rating="3">☆</span>
+                        <span class="star-input" data-rating="4">☆</span>
+                        <span class="star-input" data-rating="5">☆</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Título de tu Reseña</label>
+                    <input type="text" class="form-input" placeholder="Ej: Excelente servicio y profesionalidad" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Tu Opinión Detallada</label>
+                    <textarea class="form-textarea" placeholder="Cuéntanos tu experiencia con este servicio. ¿Qué te gustó? ¿Qué mejorarías? Sé específico y honesto para ayudar a otros estudiantes." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Tu Nombre</label>
+                    <input type="text" class="form-input" placeholder="Ej: María G." required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Tu Correo Electrónico</label>
+                    <input type="email" class="form-input" placeholder="ejemplo@correo.com" required>
+                    <small style="color: var(--text-light); font-size: 13px; display: block; margin-top: 5px;">
+                        Tu email no será publicado. Solo se usa para verificación.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="consent" required>
+                        <label for="consent">
+                            Esta reseña se basa en mi propia experiencia y es mi opinión genuina. Acepto las <a href="#politica" style="color: var(--secondary-color);">políticas de uso</a>.
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-accent btn-submit">Enviar Opinión</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BLOG SECTION
+         ============================================ -->
+    <section class="blog-section" id="blog">
+        <div class="container">
+            <h2 class="section-title">Desde el Blog</h2>
+            <p class="section-subtitle">
+                Guías y consejos para elegir el mejor servicio de TFG/TFM
+            </p>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">📝</div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Cómo Identificar Opiniones Falsas en Servicios de TFG</h3>
+                        <p class="blog-excerpt">
+                            Aprende a distinguir entre opiniones genuinas y fabricadas para tomar decisiones informadas al elegir un servicio académico. Técnicas y señales de alerta.
+                        </p>
+                        <a href="#" class="blog-link">Leer más →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">🔒</div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Guía Completa para Comprar TFG de Forma Segura</h3>
+                        <p class="blog-excerpt">
+                            Todo lo que necesitas saber antes de contratar un servicio de elaboración de TFG: precios justos, garantías esenciales y aspectos legales importantes.
+                        </p>
+                        <a href="#" class="blog-link">Leer más →</a>
+                    </div>
+                </div>
+
+                <div class="blog-card">
+                    <div class="blog-image">⭐</div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">Los Mejores Sitios de Reseñas para Servicios Académicos</h3>
+                        <p class="blog-excerpt">
+                            Descubre las plataformas más confiables para consultar opiniones sobre empresas de TFG y TFM: Trustpilot, Provenexpert, Trustami y foros especializados.
+                        </p>
+                        <a href="#" class="blog-link">Leer más →</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-30">
+                <a href="#blog-completo" class="btn">Ver Todos los Artículos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA BANNER
+         ============================================ -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>¿Has Usado un Servicio de TFG o TFM?</h2>
+            <p>Tu opinión puede ayudar a cientos de estudiantes. Comparte tu experiencia hoy.</p>
+            <a href="#dejar-opinion" class="btn btn-lg btn-white">Compartir mi Experiencia</a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>⭐ OpinionesTFG</h3>
+                    <p class="footer-description">
+                        Plataforma independiente de reseñas y opiniones sobre servicios de elaboración de TFG, TFM y trabajos académicos en España. Ayudamos a estudiantes a tomar decisiones informadas.
+                    </p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#empresas">Empresas</a></li>
+                        <li><a href="#opiniones">Opiniones</a></li>
+                        <li><a href="#foro">Foro Comunitario</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#dejar-opinion">Dejar Opinión</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Información</h3>
+                    <ul>
+                        <li><a href="#sobre">Sobre Nosotros</a></li>
+                        <li><a href="#como-funciona">Cómo Funciona</a></li>
+                        <li><a href="#registrar-empresa">Registrar Empresa</a></li>
+                        <li><a href="#faq">Preguntas Frecuentes</a></li>
+                        <li><a href="#guias">Guías y Consejos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#aviso-legal">Aviso Legal</a></li>
+                        <li><a href="#privacidad">Política de Privacidad</a></li>
+                        <li><a href="#cookies">Política de Cookies</a></li>
+                        <li><a href="#terminos">Términos de Uso</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-disclaimer">
+                <strong>⚠️ DISCLAIMER IMPORTANTE:</strong> OpinionesTFG.com es una plataforma independiente de reseñas. NO estamos afiliados, asociados ni representamos a ninguna de las empresas listadas. Todos los comentarios expresados son opiniones de usuarios individuales y no representan las opiniones de OpinionesTFG.com. No ofrecemos servicios de TFG/TFM.
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 OpinionesTFG.com - Plataforma Independiente de Reseñas de Servicios Académicos</p>
+                <p style="margin-top: 10px;">Contacto: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d9bab6b7adb8baadb699b6a9b0b7b0b6b7bcaaadbfbeadbfb4f7bab6b4">[email&#160;protected]</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Sistema de calificación con estrellas
+        document.querySelectorAll('.star-input').forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.getAttribute('data-rating');
+                const stars = this.parentElement.querySelectorAll('.star-input');
+                
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.add('active');
+                        s.textContent = '★';
+                    } else {
+                        s.classList.remove('active');
+                        s.textContent = '☆';
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if
